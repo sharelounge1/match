@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 관리 - MatchUp Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-900/50 border-r border-slate-800 min-h-screen fixed left-0 top-0">
+            <div class="p-6">
+                <a href="../dashboard.html" class="text-2xl font-bold gradient-text">MatchUp</a>
+                <span class="ml-2 text-xs bg-indigo-500/20 text-indigo-400 px-2 py-1 rounded">Admin</span>
+            </div>
+
+            <nav class="px-4 space-y-1">
+                <a href="../dashboard.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    대시보드
+                </a>
+                <a href="../users/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    사용자 관리
+                </a>
+                <a href="../projects/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    프로젝트 관리
+                </a>
+                <a href="../reports/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    신고 관리
+                </a>
+                <a href="../payments/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                    결제 관리
+                </a>
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-white bg-slate-800/50 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
+                    콘텐츠 관리
+                </a>
+                <a href="../settings/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    설정
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 ml-64">
+            <!-- Header -->
+            <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-40">
+                <div class="px-8 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <a href="index.html" class="text-slate-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </a>
+                        <h1 class="text-xl font-semibold text-white">공지사항 관리</h1>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button class="p-2 text-slate-400 hover:text-white transition-colors relative">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                            </svg>
+                        </button>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center">
+                                <span class="text-sm font-medium text-white">A</span>
+                            </div>
+                            <span class="text-sm text-white">관리자</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-8">
+                <!-- Header with actions -->
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">공지사항</h2>
+                        <p class="text-slate-400 mt-1">총 12개의 공지사항</p>
+                    </div>
+                    <a href="create.html?type=notice" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        새 공지사항 작성
+                    </a>
+                </div>
+
+                <!-- Filter Bar -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4 mb-6">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <div class="flex-1 min-w-[200px]">
+                            <input type="text" placeholder="제목 검색..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-indigo-500">
+                        </div>
+                        <div class="flex-1 min-w-[150px]">
+                            <select class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-indigo-500">
+                                <option value="">모든 상태</option>
+                                <option value="published">게시중</option>
+                                <option value="scheduled">예약</option>
+                                <option value="draft">비공개</option>
+                            </select>
+                        </div>
+                        <button class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-lg transition-colors">
+                            검색
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notices Table -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-slate-800">
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">제목</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">작성자</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">작성일</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">조회수</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">상태</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">액션</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800">
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <span class="text-white font-medium">2024년 1월 서비스 업데이트 안내</span>
+                                        <span class="ml-2 px-1.5 py-0.5 bg-red-500/20 text-red-400 text-xs rounded">중요</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">관리자</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2024.01.15 09:00</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">1,245</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">게시중</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="create.html?id=1" class="text-indigo-400 hover:text-indigo-300 text-sm">수정</a>
+                                        <span class="text-slate-600">|</span>
+                                        <button class="text-red-400 hover:text-red-300 text-sm">삭제</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-white font-medium">설 연휴 고객센터 운영 안내</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">관리자</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2024.01.12 14:30</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">-</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded">예약 (01.20)</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="create.html?id=2" class="text-indigo-400 hover:text-indigo-300 text-sm">수정</a>
+                                        <span class="text-slate-600">|</span>
+                                        <button class="text-red-400 hover:text-red-300 text-sm">삭제</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-white font-medium">이용약관 변경 안내</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">관리자</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2024.01.10 11:00</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">892</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">게시중</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="create.html?id=3" class="text-indigo-400 hover:text-indigo-300 text-sm">수정</a>
+                                        <span class="text-slate-600">|</span>
+                                        <button class="text-red-400 hover:text-red-300 text-sm">삭제</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-white font-medium">신규 기능 출시: 실시간 채팅</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">관리자</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2024.01.08 10:00</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">-</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 bg-slate-700 text-slate-400 text-xs rounded">비공개</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="create.html?id=4" class="text-indigo-400 hover:text-indigo-300 text-sm">수정</a>
+                                        <span class="text-slate-600">|</span>
+                                        <button class="text-red-400 hover:text-red-300 text-sm">삭제</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-white font-medium">서비스 점검 안내 (1/5)</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">관리자</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2024.01.04 18:00</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2,156</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">게시중</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="create.html?id=5" class="text-indigo-400 hover:text-indigo-300 text-sm">수정</a>
+                                        <span class="text-slate-600">|</span>
+                                        <button class="text-red-400 hover:text-red-300 text-sm">삭제</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-white font-medium">2024년 신년 이벤트 안내</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">관리자</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2024.01.01 00:00</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">3,421</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">게시중</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="create.html?id=6" class="text-indigo-400 hover:text-indigo-300 text-sm">수정</a>
+                                        <span class="text-slate-600">|</span>
+                                        <button class="text-red-400 hover:text-red-300 text-sm">삭제</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-white font-medium">개인정보처리방침 개정 안내</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">관리자</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">2023.12.28 15:00</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="text-slate-400">756</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">게시중</span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-2">
+                                        <a href="create.html?id=7" class="text-indigo-400 hover:text-indigo-300 text-sm">수정</a>
+                                        <span class="text-slate-600">|</span>
+                                        <button class="text-red-400 hover:text-red-300 text-sm">삭제</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Bulk Actions & Pagination -->
+                    <div class="px-6 py-4 border-t border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm text-slate-400">선택한 항목:</span>
+                            <button class="px-3 py-1 bg-slate-800 text-slate-400 hover:text-white rounded text-sm transition-colors">
+                                상태 변경
+                            </button>
+                            <button class="px-3 py-1 bg-red-500/10 text-red-400 hover:bg-red-500/20 rounded text-sm transition-colors">
+                                삭제
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition-colors disabled:opacity-50" disabled>
+                                이전
+                            </button>
+                            <button class="px-3 py-1 bg-indigo-500 text-white rounded">1</button>
+                            <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition-colors">2</button>
+                            <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition-colors">
+                                다음
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 관리 - MatchUp Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 border-r border-slate-800 p-6">
+        <div class="text-xl font-bold gradient-text mb-8">MatchUp Admin</div>
+        <nav class="space-y-2">
+            <a href="/pages/admin/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                대시보드
+            </a>
+            <a href="/pages/admin/users/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                사용자 관리
+            </a>
+            <a href="/pages/admin/projects/index.html" class="flex items-center gap-3 px-4 py-3 text-white bg-slate-800 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                프로젝트 관리
+            </a>
+            <a href="/pages/admin/reports/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+                신고 관리
+            </a>
+            <a href="/pages/admin/payments/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                </svg>
+                결제 관리
+            </a>
+            <a href="/pages/admin/content/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                콘텐츠 관리
+            </a>
+            <a href="/pages/admin/settings/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                설정
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-2xl font-bold mb-2">프로젝트 관리</h1>
+                <p class="text-slate-400">등록된 프로젝트를 검토하고 관리합니다</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="px-4 py-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                    </svg>
+                    내보내기
+                </button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm text-slate-400 mb-2">검색</label>
+                    <input type="text" placeholder="프로젝트 제목, 등록자명 검색" class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-2">상태</label>
+                    <select class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-indigo-500">
+                        <option value="">전체</option>
+                        <option value="pending">검토중</option>
+                        <option value="approved">승인</option>
+                        <option value="rejected">거절</option>
+                        <option value="closed">마감</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-2">카테고리</label>
+                    <select class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-indigo-500">
+                        <option value="">전체</option>
+                        <option value="app">앱</option>
+                        <option value="web">웹서비스</option>
+                        <option value="ai">AI/ML</option>
+                        <option value="fintech">핀테크</option>
+                        <option value="healthcare">헬스케어</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-400 mb-2">등록일</label>
+                    <input type="date" class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-indigo-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                <div class="text-sm text-slate-400 mb-1">전체 프로젝트</div>
+                <div class="text-2xl font-bold">248</div>
+            </div>
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                <div class="text-sm text-slate-400 mb-1">검토 대기</div>
+                <div class="text-2xl font-bold text-yellow-400">15</div>
+            </div>
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                <div class="text-sm text-slate-400 mb-1">승인됨</div>
+                <div class="text-2xl font-bold text-green-400">189</div>
+            </div>
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                <div class="text-sm text-slate-400 mb-1">거절/마감</div>
+                <div class="text-2xl font-bold text-slate-400">44</div>
+            </div>
+        </div>
+
+        <!-- Projects Table -->
+        <div class="bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden">
+            <table class="w-full">
+                <thead>
+                    <tr class="border-b border-slate-800">
+                        <th class="text-left px-6 py-4 text-sm font-medium text-slate-400">제목</th>
+                        <th class="text-left px-6 py-4 text-sm font-medium text-slate-400">등록자</th>
+                        <th class="text-left px-6 py-4 text-sm font-medium text-slate-400">카테고리</th>
+                        <th class="text-left px-6 py-4 text-sm font-medium text-slate-400">상태</th>
+                        <th class="text-left px-6 py-4 text-sm font-medium text-slate-400">지원자</th>
+                        <th class="text-left px-6 py-4 text-sm font-medium text-slate-400">등록일</th>
+                        <th class="text-left px-6 py-4 text-sm font-medium text-slate-400">액션</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="px-6 py-4">
+                            <div class="font-medium">AI 기반 운동 추천 서비스</div>
+                            <div class="text-sm text-slate-400">ID: PRJ-001234</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                                <span>김민수</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded">앱</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded">검토중</span>
+                        </td>
+                        <td class="px-6 py-4 text-slate-300">12명</td>
+                        <td class="px-6 py-4 text-slate-400">2025.01.15</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <a href="detail.html" class="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </a>
+                                <button class="p-2 text-green-400 hover:bg-green-500/20 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-red-400 hover:bg-red-500/20 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="px-6 py-4">
+                            <div class="font-medium">블록체인 결제 시스템</div>
+                            <div class="text-sm text-slate-400">ID: PRJ-001233</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                                <span>이지은</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded">핀테크</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">승인</span>
+                        </td>
+                        <td class="px-6 py-4 text-slate-300">28명</td>
+                        <td class="px-6 py-4 text-slate-400">2025.01.14</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <a href="detail.html" class="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </a>
+                                <button class="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="px-6 py-4">
+                            <div class="font-medium">반려동물 헬스케어 플랫폼</div>
+                            <div class="text-sm text-slate-400">ID: PRJ-001232</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-teal-500 rounded-full"></div>
+                                <span>박서준</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">헬스케어</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded">검토중</span>
+                        </td>
+                        <td class="px-6 py-4 text-slate-300">5명</td>
+                        <td class="px-6 py-4 text-slate-400">2025.01.13</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <a href="detail.html" class="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </a>
+                                <button class="p-2 text-green-400 hover:bg-green-500/20 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-red-400 hover:bg-red-500/20 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                                <button class="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="px-6 py-4">
+                            <div class="font-medium">온라인 교육 마켓플레이스</div>
+                            <div class="text-sm text-slate-400">ID: PRJ-001231</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full"></div>
+                                <span>최유진</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-400 text-xs rounded">웹서비스</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded">거절</span>
+                        </td>
+                        <td class="px-6 py-4 text-slate-300">0명</td>
+                        <td class="px-6 py-4 text-slate-400">2025.01.12</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <a href="detail.html" class="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </a>
+                                <button class="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="px-6 py-4">
+                            <div class="font-medium">스마트팜 IoT 솔루션</div>
+                            <div class="text-sm text-slate-400">ID: PRJ-001230</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+                                <span>정하늘</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded">AI/ML</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-slate-500/20 text-slate-400 text-xs rounded">마감</span>
+                        </td>
+                        <td class="px-6 py-4 text-slate-300">45명</td>
+                        <td class="px-6 py-4 text-slate-400">2025.01.10</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <a href="detail.html" class="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </a>
+                                <button class="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-700 rounded transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <div class="px-6 py-4 border-t border-slate-800 flex items-center justify-between">
+                <div class="text-sm text-slate-400">총 248개 중 1-10 표시</div>
+                <div class="flex items-center gap-2">
+                    <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition disabled:opacity-50" disabled>이전</button>
+                    <button class="px-3 py-1 bg-indigo-500 text-white rounded">1</button>
+                    <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition">2</button>
+                    <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition">3</button>
+                    <span class="text-slate-400">...</span>
+                    <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition">25</button>
+                    <button class="px-3 py-1 bg-slate-800 text-slate-400 rounded hover:bg-slate-700 transition">다음</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

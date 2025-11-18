@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-slate-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <h1 class="text-lg font-semibold text-white">자주 묻는 질문</h1>
+            <div class="w-6"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-lg mx-auto px-4 py-6">
+        <!-- Category Tabs -->
+        <div class="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+            <button class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-medium rounded-full whitespace-nowrap">
+                전체
+            </button>
+            <button class="px-4 py-2 bg-slate-800 text-slate-400 text-sm font-medium rounded-full whitespace-nowrap hover:bg-slate-700 transition-colors">
+                프로젝트
+            </button>
+            <button class="px-4 py-2 bg-slate-800 text-slate-400 text-sm font-medium rounded-full whitespace-nowrap hover:bg-slate-700 transition-colors">
+                결제
+            </button>
+            <button class="px-4 py-2 bg-slate-800 text-slate-400 text-sm font-medium rounded-full whitespace-nowrap hover:bg-slate-700 transition-colors">
+                매칭
+            </button>
+            <button class="px-4 py-2 bg-slate-800 text-slate-400 text-sm font-medium rounded-full whitespace-nowrap hover:bg-slate-700 transition-colors">
+                계약
+            </button>
+            <button class="px-4 py-2 bg-slate-800 text-slate-400 text-sm font-medium rounded-full whitespace-nowrap hover:bg-slate-700 transition-colors">
+                계정
+            </button>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-3">
+            <!-- Project FAQ -->
+            <div id="project" class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">프로젝트는 어떻게 등록하나요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p class="mb-3">프로젝트 등록은 다음 단계로 진행됩니다:</p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>메인 화면에서 '프로젝트 등록' 버튼을 클릭합니다.</li>
+                        <li>프로젝트 제목, 설명, 필요 역할을 입력합니다.</li>
+                        <li>지분 배분 비율을 설정합니다.</li>
+                        <li>등록비를 결제하면 프로젝트가 게시됩니다.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">프로젝트 등록 비용은 얼마인가요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p>프로젝트 등록비는 건당 50,000원입니다. 등록된 프로젝트는 30일간 노출되며, 연장 시 추가 비용이 발생합니다.</p>
+                </div>
+            </div>
+
+            <!-- Payment FAQ -->
+            <div id="payment" class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">환불은 어떻게 받나요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p class="mb-3">환불 정책은 다음과 같습니다:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>결제 후 24시간 이내: 전액 환불</li>
+                        <li>매칭 전: 70% 환불</li>
+                        <li>매칭 후: 환불 불가</li>
+                    </ul>
+                    <p class="mt-3">환불 요청은 '설정 &gt; 고객센터 &gt; 문의하기'에서 진행해주세요.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">결제 수단은 무엇이 있나요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p>신용카드, 체크카드, 카카오페이, 네이버페이, 토스페이를 지원합니다.</p>
+                </div>
+            </div>
+
+            <!-- Matching FAQ -->
+            <div id="matching" class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">매칭은 어떻게 이루어지나요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p class="mb-3">매칭 프로세스:</p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>지원자가 프로젝트에 지원합니다.</li>
+                        <li>프로젝트 오너가 지원자 프로필을 검토합니다.</li>
+                        <li>화상 미팅을 통해 서로를 알아갑니다.</li>
+                        <li>양측이 동의하면 매칭이 성사됩니다.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">화상 미팅은 어떻게 진행하나요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p>MatchUp 내장 화상 미팅 기능을 사용하거나, Zoom/Google Meet 링크를 공유할 수 있습니다. 미팅 예약은 '미팅' 탭에서 가능합니다.</p>
+                </div>
+            </div>
+
+            <!-- Contract FAQ -->
+            <div id="contract" class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">계약서는 법적 효력이 있나요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p>MatchUp에서 생성되는 계약서는 전자서명법에 따른 법적 효력을 갖습니다. 단, 복잡한 계약 조건의 경우 법률 전문가의 검토를 권장합니다.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">지분 배분은 어떻게 결정하나요?</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p>지분 배분은 프로젝트 등록 시 프로젝트 오너가 초기 설정하며, 매칭 과정에서 협상을 통해 조정할 수 있습니다. 최종 지분은 계약서에 명시됩니다.</p>
+                </div>
+            </div>
+
+            <!-- Account FAQ -->
+            <div id="account" class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">비밀번호를 잊어버렸어요</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p>로그인 화면에서 '비밀번호 찾기'를 클릭하고 가입 시 사용한 이메일을 입력하세요. 비밀번호 재설정 링크가 이메일로 전송됩니다.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+                <button class="w-full p-4 text-left flex items-center justify-between" onclick="this.parentElement.classList.toggle('open')">
+                    <span class="text-white font-medium">계정을 삭제하고 싶어요</span>
+                    <svg class="w-5 h-5 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 pb-4 text-slate-400 text-sm">
+                    <p>'설정 &gt; 계정 설정 &gt; 계정 삭제'에서 계정을 삭제할 수 있습니다. 계정 삭제 시 모든 데이터가 영구적으로 삭제되며 복구할 수 없습니다.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-lg mx-auto px-4 py-6 border-t border-slate-800 mt-8">
+        <div class="flex justify-center gap-6 text-sm">
+            <a href="../legal/terms.html" class="text-slate-500 hover:text-slate-300 transition-colors">이용약관</a>
+            <a href="../legal/privacy.html" class="text-slate-500 hover:text-slate-300 transition-colors">개인정보처리방침</a>
+            <a href="../legal/refund.html" class="text-slate-500 hover:text-slate-300 transition-colors">환불정책</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple accordion functionality
+        document.querySelectorAll('.bg-slate-900\\/50 button').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('svg');
+
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

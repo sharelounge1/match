@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제 수단 관리 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-slate-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <h1 class="text-lg font-semibold text-white">결제 수단 관리</h1>
+            <div class="w-6"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-lg mx-auto px-4 py-6">
+        <!-- Saved Cards -->
+        <section class="mb-6">
+            <h2 class="text-sm font-medium text-slate-500 uppercase tracking-wider mb-3">등록된 카드</h2>
+            <div class="space-y-3">
+                <!-- Card 1 - Default -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded flex items-center justify-center">
+                                <svg class="w-8 h-5 text-white" viewBox="0 0 48 32" fill="currentColor">
+                                    <path d="M18 24.5c4.14 0 7.5-3.36 7.5-7.5s-3.36-7.5-7.5-7.5-7.5 3.36-7.5 7.5 3.36 7.5 7.5 7.5z" opacity="0.8"/>
+                                    <path d="M30 24.5c4.14 0 7.5-3.36 7.5-7.5s-3.36-7.5-7.5-7.5-7.5 3.36-7.5 7.5 3.36 7.5 7.5 7.5z" opacity="0.8"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <p class="text-white font-medium">**** **** **** 1234</p>
+                                    <span class="px-2 py-0.5 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">기본</span>
+                                </div>
+                                <p class="text-sm text-slate-400">신한카드 | 12/26</p>
+                            </div>
+                        </div>
+                        <button class="text-slate-500 hover:text-red-400 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-8 bg-gradient-to-r from-amber-500 to-amber-600 rounded flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.555 7.222c0-.51-.138-.975-.473-1.32-.335-.344-.764-.552-1.236-.552h-2.282c-.15-1.227-1.187-2.18-2.439-2.18h-4.25c-1.252 0-2.29.953-2.44 2.18H5.154c-.472 0-.9.208-1.236.552-.335.345-.473.81-.473 1.32v10.378c0 .51.138.976.473 1.32.335.345.764.553 1.236.553h13.692c.472 0 .9-.208 1.236-.552.335-.345.473-.81.473-1.32V7.222z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">**** **** **** 5678</p>
+                                <p class="text-sm text-slate-400">KB국민카드 | 08/25</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="text-slate-500 hover:text-indigo-400 transition-colors text-sm">
+                                기본으로
+                            </button>
+                            <button class="text-slate-500 hover:text-red-400 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">**** **** **** 9012</p>
+                                <p class="text-sm text-slate-400">삼성카드 | 03/27</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="text-slate-500 hover:text-indigo-400 transition-colors text-sm">
+                                기본으로
+                            </button>
+                            <button class="text-slate-500 hover:text-red-400 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add New Card -->
+        <section>
+            <button class="w-full bg-slate-900/50 border border-slate-800 border-dashed rounded-xl p-6 hover:border-indigo-500 hover:bg-slate-900/70 transition-all group">
+                <div class="flex flex-col items-center gap-3">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
+                        <svg class="w-6 h-6 text-slate-500 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-white font-medium group-hover:text-indigo-400 transition-colors">새 카드 등록</p>
+                        <p class="text-sm text-slate-500">신용카드 또는 체크카드를 추가하세요</p>
+                    </div>
+                </div>
+            </button>
+        </section>
+
+        <!-- Payment History Link -->
+        <section class="mt-8">
+            <a href="../payments/history.html" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-colors">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium">결제 내역</h3>
+                            <p class="text-sm text-slate-400">이전 결제 기록 보기</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-lg mx-auto px-4 py-6 border-t border-slate-800 mt-8">
+        <div class="flex justify-center gap-6 text-sm">
+            <a href="../legal/terms.html" class="text-slate-500 hover:text-slate-300 transition-colors">이용약관</a>
+            <a href="../legal/privacy.html" class="text-slate-500 hover:text-slate-300 transition-colors">개인정보처리방침</a>
+            <a href="../legal/refund.html" class="text-slate-500 hover:text-slate-300 transition-colors">환불정책</a>
+        </div>
+    </footer>
+</body>
+</html>

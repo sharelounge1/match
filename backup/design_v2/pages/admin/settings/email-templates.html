@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이메일 템플릿 - MatchUp Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 border-r border-slate-800 p-6">
+        <div class="text-xl font-bold gradient-text mb-8">MatchUp Admin</div>
+        <nav class="space-y-2">
+            <a href="/pages/admin/index.html" class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                대시보드
+            </a>
+            <a href="/pages/admin/users/index.html" class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                사용자 관리
+            </a>
+            <a href="/pages/admin/projects/index.html" class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+                프로젝트 관리
+            </a>
+            <a href="/pages/admin/reports/index.html" class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                신고 관리
+            </a>
+            <a href="/pages/admin/payments/index.html" class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+                결제 관리
+            </a>
+            <a href="/pages/admin/content/index.html" class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                </svg>
+                콘텐츠 관리
+            </a>
+            <a href="/pages/admin/settings/index.html" class="flex items-center gap-3 px-3 py-2 text-white bg-slate-800 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                설정
+            </a>
+        </nav>
+
+        <!-- Admin Profile -->
+        <div class="absolute bottom-6 left-6 right-6">
+            <div class="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg">
+                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                    A
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-white truncate">관리자</p>
+                    <p class="text-xs text-slate-400 truncate">admin@matchup.kr</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <div class="mb-8">
+            <div class="flex items-center gap-2 text-sm text-slate-400 mb-2">
+                <a href="index.html" class="hover:text-white transition-colors">설정</a>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <span class="text-white">이메일 템플릿</span>
+            </div>
+            <h1 class="text-2xl font-bold text-white">이메일 템플릿</h1>
+        </div>
+
+        <!-- Template List -->
+        <div class="space-y-4">
+            <!-- Welcome Email -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium">회원가입 환영 이메일</h3>
+                            <p class="text-sm text-slate-400">신규 회원가입 시 발송</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">활성</span>
+                        <button onclick="openEditModal('welcome')" class="p-2 hover:bg-slate-800 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <p class="text-sm text-slate-400 mb-1">제목:</p>
+                    <p class="text-white mb-3">[MatchUp] {{user_name}}님, 환영합니다!</p>
+                    <p class="text-sm text-slate-400 mb-1">본문 미리보기:</p>
+                    <p class="text-slate-300 text-sm line-clamp-2">안녕하세요, {{user_name}}님! MatchUp에 가입해 주셔서 감사합니다. 지금 바로 프로젝트를 탐색하고 팀원을 찾아보세요...</p>
+                </div>
+            </div>
+
+            <!-- Password Reset -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium">비밀번호 재설정</h3>
+                            <p class="text-sm text-slate-400">비밀번호 재설정 요청 시 발송</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">활성</span>
+                        <button onclick="openEditModal('password')" class="p-2 hover:bg-slate-800 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <p class="text-sm text-slate-400 mb-1">제목:</p>
+                    <p class="text-white mb-3">[MatchUp] 비밀번호 재설정 안내</p>
+                    <p class="text-sm text-slate-400 mb-1">본문 미리보기:</p>
+                    <p class="text-slate-300 text-sm line-clamp-2">비밀번호 재설정을 요청하셨습니다. 아래 버튼을 클릭하여 새 비밀번호를 설정해 주세요. 이 링크는 24시간 동안 유효합니다...</p>
+                </div>
+            </div>
+
+            <!-- Project Approval -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium">프로젝트 승인 알림</h3>
+                            <p class="text-sm text-slate-400">프로젝트 검토 완료 후 발송</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">활성</span>
+                        <button onclick="openEditModal('approval')" class="p-2 hover:bg-slate-800 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <p class="text-sm text-slate-400 mb-1">제목:</p>
+                    <p class="text-white mb-3">[MatchUp] 프로젝트 "{{project_title}}" 승인 완료</p>
+                    <p class="text-sm text-slate-400 mb-1">본문 미리보기:</p>
+                    <p class="text-slate-300 text-sm line-clamp-2">축하합니다! {{user_name}}님의 프로젝트 "{{project_title}}"이(가) 검토를 통과하여 공개되었습니다. 지금 바로 지원자를 확인해 보세요...</p>
+                </div>
+            </div>
+
+            <!-- Application Notification -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium">지원 알림</h3>
+                            <p class="text-sm text-slate-400">프로젝트에 새 지원자 발생 시 발송</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">활성</span>
+                        <button onclick="openEditModal('application')" class="p-2 hover:bg-slate-800 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <p class="text-sm text-slate-400 mb-1">제목:</p>
+                    <p class="text-white mb-3">[MatchUp] "{{project_title}}"에 새로운 지원자가 있습니다</p>
+                    <p class="text-sm text-slate-400 mb-1">본문 미리보기:</p>
+                    <p class="text-slate-300 text-sm line-clamp-2">{{applicant_name}}님이 "{{project_title}}" 프로젝트에 {{role_name}} 역할로 지원했습니다. 지원서를 확인하고 팀원을 선정해 주세요...</p>
+                </div>
+            </div>
+
+            <!-- Application Result -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-medium">지원 결과 알림</h3>
+                            <p class="text-sm text-slate-400">지원 승인/거절 시 발송</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">활성</span>
+                        <button onclick="openEditModal('result')" class="p-2 hover:bg-slate-800 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <p class="text-sm text-slate-400 mb-1">제목:</p>
+                    <p class="text-white mb-3">[MatchUp] "{{project_title}}" 지원 결과 안내</p>
+                    <p class="text-sm text-slate-400 mb-1">본문 미리보기:</p>
+                    <p class="text-slate-300 text-sm line-clamp-2">{{user_name}}님, "{{project_title}}" 프로젝트 지원에 대한 결과를 안내드립니다. {{result_message}}...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl w-full max-w-3xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-slate-800">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-white">이메일 템플릿 편집</h2>
+                    <button onclick="closeEditModal()" class="p-2 hover:bg-slate-800 rounded-lg transition-colors">
+                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <form class="p-6 space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">템플릿 이름</label>
+                    <input type="text" value="회원가입 환영 이메일" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">이메일 제목</label>
+                    <input type="text" value="[MatchUp] {{user_name}}님, 환영합니다!" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">이메일 본문</label>
+                    <textarea rows="12" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors resize-none font-mono text-sm">안녕하세요, {{user_name}}님!
+
+MatchUp에 가입해 주셔서 감사합니다.
+
+MatchUp은 아이디어 보유자와 기술 보유자를 연결하는 협업 플랫폼입니다. 지금 바로 프로젝트를 탐색하고 팀원을 찾아보세요.
+
+시작하기:
+1. 프로필을 완성하세요
+2. 관심 있는 프로젝트를 찾아보세요
+3. 프로젝트에 지원하거나 직접 등록하세요
+
+문의사항이 있으시면 언제든 고객센터로 연락주세요.
+
+감사합니다,
+MatchUp 팀</textarea>
+                </div>
+
+                <!-- Available Variables -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">사용 가능한 변수</label>
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-700 text-slate-300 text-sm rounded-full">{{user_name}}</span>
+                            <span class="px-3 py-1 bg-slate-700 text-slate-300 text-sm rounded-full">{{user_email}}</span>
+                            <span class="px-3 py-1 bg-slate-700 text-slate-300 text-sm rounded-full">{{site_name}}</span>
+                            <span class="px-3 py-1 bg-slate-700 text-slate-300 text-sm rounded-full">{{site_url}}</span>
+                            <span class="px-3 py-1 bg-slate-700 text-slate-300 text-sm rounded-full">{{current_date}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <button type="button" class="px-4 py-2 text-indigo-400 hover:text-indigo-300 transition-colors">
+                        미리보기
+                    </button>
+                    <div class="flex gap-4">
+                        <button type="button" onclick="closeEditModal()" class="px-6 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white hover:bg-slate-700 transition-colors">
+                            취소
+                        </button>
+                        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg text-white font-medium hover:opacity-90 transition-opacity">
+                            저장
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openEditModal(type) {
+            document.getElementById('editModal').classList.remove('hidden');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+        }
+
+        // Close modal on backdrop click
+        document.getElementById('editModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEditModal();
+            }
+        });
+    </script>
+</body>
+</html>

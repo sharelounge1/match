@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchUp - 결제하기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold">
+                <span class="gradient-text">MatchUp</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-slate-400 hover:text-white transition">프로젝트</a>
+                <a href="../contracts/index.html" class="text-slate-400 hover:text-white transition">계약서</a>
+                <a href="index.html" class="text-white font-medium">결제</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-slate-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </a>
+                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-2">결제하기</h1>
+                <p class="text-slate-400">결제 정보를 확인하고 결제를 완료하세요</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Payment Form -->
+                <div class="md:col-span-2 space-y-6">
+                    <!-- Order Summary -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                        <h2 class="text-lg font-semibold mb-4">주문 내역</h2>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start justify-between p-4 bg-slate-800/50 rounded-lg">
+                                <div>
+                                    <div class="font-medium">AI 기반 운동 추천 서비스</div>
+                                    <div class="text-sm text-slate-400">프로젝트 등록비</div>
+                                </div>
+                                <div class="font-medium">50,000원</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                        <h2 class="text-lg font-semibold mb-4">결제 수단</h2>
+
+                        <!-- Saved Cards -->
+                        <div class="space-y-3 mb-6">
+                            <label class="flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg cursor-pointer border-2 border-indigo-500">
+                                <input type="radio" name="payment" checked class="w-4 h-4 text-indigo-500 bg-slate-800 border-slate-700 focus:ring-indigo-500">
+                                <div class="flex items-center gap-3 flex-1">
+                                    <div class="w-10 h-7 bg-gradient-to-r from-blue-600 to-blue-400 rounded flex items-center justify-center text-xs font-bold">
+                                        VISA
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">**** **** **** 4242</div>
+                                        <div class="text-sm text-slate-400">만료: 12/26</div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg cursor-pointer border border-slate-700 hover:border-slate-600 transition">
+                                <input type="radio" name="payment" class="w-4 h-4 text-indigo-500 bg-slate-800 border-slate-700 focus:ring-indigo-500">
+                                <div class="flex items-center gap-3 flex-1">
+                                    <div class="w-10 h-7 bg-gradient-to-r from-red-600 to-orange-500 rounded flex items-center justify-center text-xs font-bold">
+                                        MC
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">**** **** **** 8888</div>
+                                        <div class="text-sm text-slate-400">만료: 03/25</div>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg cursor-pointer border border-slate-700 hover:border-slate-600 transition">
+                                <input type="radio" name="payment" class="w-4 h-4 text-indigo-500 bg-slate-800 border-slate-700 focus:ring-indigo-500">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-7 bg-slate-700 rounded flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="font-medium">새 카드 추가</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Add New Card Form (Hidden by default) -->
+                        <div class="space-y-4 p-4 bg-slate-800/30 rounded-lg border border-slate-700">
+                            <h3 class="font-medium mb-3">새 카드 정보 입력</h3>
+                            <div>
+                                <label class="block text-sm text-slate-400 mb-2">카드 번호</label>
+                                <input type="text" placeholder="1234 5678 9012 3456" class="w-full p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm text-slate-400 mb-2">만료일</label>
+                                    <input type="text" placeholder="MM/YY" class="w-full p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-slate-400 mb-2">CVC</label>
+                                    <input type="text" placeholder="123" class="w-full p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-slate-400 mb-2">카드 소유자 이름</label>
+                                <input type="text" placeholder="HONG GILDONG" class="w-full p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none">
+                            </div>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded border-slate-700 bg-slate-800 text-indigo-500 focus:ring-indigo-500">
+                                <span class="text-sm text-slate-400">이 카드를 저장하기</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Total -->
+                <div class="md:col-span-1">
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 sticky top-24">
+                        <h2 class="text-lg font-semibold mb-4">결제 금액</h2>
+
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-400">상품 금액</span>
+                                <span>50,000원</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-400">부가세 (10%)</span>
+                                <span>5,000원</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-green-400">
+                                <span>할인</span>
+                                <span>-5,000원</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-800 pt-4 mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium">총 결제 금액</span>
+                                <span class="text-2xl font-bold gradient-text">50,000원</span>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="mb-6">
+                            <label class="block text-sm text-slate-400 mb-2">프로모션 코드</label>
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="코드 입력" class="flex-1 p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm">
+                                <button class="px-4 py-3 border border-slate-700 rounded-lg text-slate-300 hover:bg-slate-800 transition text-sm">
+                                    적용
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Terms -->
+                        <label class="flex items-start gap-2 cursor-pointer mb-6">
+                            <input type="checkbox" class="w-4 h-4 mt-0.5 rounded border-slate-700 bg-slate-800 text-indigo-500 focus:ring-indigo-500">
+                            <span class="text-xs text-slate-400">
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300">이용약관</a> 및
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300">환불정책</a>에 동의합니다
+                            </span>
+                        </label>
+
+                        <!-- Pay Button -->
+                        <button class="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg text-white font-medium hover:opacity-90 transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            50,000원 결제하기
+                        </button>
+
+                        <div class="mt-4 text-center">
+                            <div class="flex items-center justify-center gap-2 text-xs text-slate-500">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                                256-bit SSL 암호화로 안전하게 보호됩니다
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-xl font-bold gradient-text mb-4 md:mb-0">MatchUp</div>
+                <div class="flex items-center space-x-6 text-sm text-slate-500">
+                    <a href="#" class="hover:text-white transition">이용약관</a>
+                    <a href="#" class="hover:text-white transition">개인정보처리방침</a>
+                    <a href="#" class="hover:text-white transition">문의하기</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

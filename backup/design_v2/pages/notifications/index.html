@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800">
+        <div class="max-w-lg mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-xl font-bold">알림</h1>
+                <button class="text-sm text-indigo-400 hover:text-indigo-300 transition-colors">
+                    전체 읽음 처리
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="sticky top-[73px] z-40 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800">
+        <div class="max-w-lg mx-auto px-4">
+            <div class="flex gap-1">
+                <button class="flex-1 py-3 text-sm font-medium text-white border-b-2 border-indigo-500 transition-colors" data-tab="all">
+                    전체
+                </button>
+                <button class="flex-1 py-3 text-sm font-medium text-slate-400 hover:text-white border-b-2 border-transparent transition-colors" data-tab="project">
+                    프로젝트
+                </button>
+                <button class="flex-1 py-3 text-sm font-medium text-slate-400 hover:text-white border-b-2 border-transparent transition-colors" data-tab="meeting">
+                    미팅
+                </button>
+                <button class="flex-1 py-3 text-sm font-medium text-slate-400 hover:text-white border-b-2 border-transparent transition-colors" data-tab="contract">
+                    계약
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-lg mx-auto px-4 py-4">
+        <!-- Notification List -->
+        <div class="space-y-2">
+            <!-- Notification - Project Application (Unread) -->
+            <a href="../applicants/detail.html?id=1" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors relative">
+                <div class="absolute top-4 right-4 w-2 h-2 bg-indigo-500 rounded-full"></div>
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">새로운 지원자</h3>
+                        <p class="text-sm text-slate-400 mb-2">홍길동님이 'AI 운동 추천 앱' 프로젝트에 지원했습니다.</p>
+                        <span class="text-xs text-slate-500">방금 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Meeting Reminder (Unread) -->
+            <a href="../meetings/detail.html?id=1" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors relative">
+                <div class="absolute top-4 right-4 w-2 h-2 bg-indigo-500 rounded-full"></div>
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">미팅 알림</h3>
+                        <p class="text-sm text-slate-400 mb-2">내일 오후 3시 '김철수'님과의 미팅이 예정되어 있습니다.</p>
+                        <span class="text-xs text-slate-500">10분 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Contract Signed (Unread) -->
+            <a href="../contracts/detail.html?id=1" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors relative">
+                <div class="absolute top-4 right-4 w-2 h-2 bg-indigo-500 rounded-full"></div>
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">계약서 서명 완료</h3>
+                        <p class="text-sm text-slate-400 mb-2">김철수님이 'AI 운동 추천 앱' 계약서에 서명했습니다.</p>
+                        <span class="text-xs text-slate-500">30분 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Application Accepted (Read) -->
+            <a href="../projects/detail.html?id=2" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors">
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">지원 수락됨</h3>
+                        <p class="text-sm text-slate-400 mb-2">'헬스케어 플랫폼' 프로젝트 지원이 수락되었습니다.</p>
+                        <span class="text-xs text-slate-500">1시간 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - New Message (Read) -->
+            <a href="../messages/chat.html?id=3" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors">
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">새 메시지</h3>
+                        <p class="text-sm text-slate-400 mb-2">박지민님이 메시지를 보냈습니다: "네, 알겠습니다..."</p>
+                        <span class="text-xs text-slate-500">2시간 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Project Update (Read) -->
+            <a href="../projects/detail.html?id=1" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors">
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">프로젝트 업데이트</h3>
+                        <p class="text-sm text-slate-400 mb-2">'AI 운동 추천 앱' 프로젝트 정보가 업데이트되었습니다.</p>
+                        <span class="text-xs text-slate-500">3시간 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Meeting Scheduled (Read) -->
+            <a href="../meetings/detail.html?id=2" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors">
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">미팅 일정 확정</h3>
+                        <p class="text-sm text-slate-400 mb-2">이영희님이 미팅 일정을 확정했습니다: 11월 20일 오후 2시</p>
+                        <span class="text-xs text-slate-500">어제</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Contract Created (Read) -->
+            <a href="../contracts/detail.html?id=2" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors">
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-indigo-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">계약서 생성됨</h3>
+                        <p class="text-sm text-slate-400 mb-2">'헬스케어 플랫폼' 프로젝트의 계약서가 생성되었습니다.</p>
+                        <span class="text-xs text-slate-500">2일 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Application Rejected (Read) -->
+            <a href="../projects/detail.html?id=3" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors">
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-red-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">지원 반려됨</h3>
+                        <p class="text-sm text-slate-400 mb-2">'음악 스트리밍 앱' 프로젝트 지원이 반려되었습니다.</p>
+                        <span class="text-xs text-slate-500">3일 전</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Notification - Welcome (Read) -->
+            <a href="../onboarding/index.html" class="block bg-slate-900/50 border border-slate-800 rounded-xl p-4 hover:bg-slate-800/50 transition-colors">
+                <div class="flex gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-sm mb-1">MatchUp에 오신 것을 환영합니다!</h3>
+                        <p class="text-sm text-slate-400 mb-2">프로필을 완성하고 첫 프로젝트를 시작해보세요.</p>
+                        <span class="text-xs text-slate-500">1주일 전</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Empty State (hidden by default) -->
+        <div class="hidden text-center py-16">
+            <div class="w-20 h-20 bg-slate-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-10 h-10 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">알림이 없습니다</h3>
+            <p class="text-slate-400 text-sm">새로운 알림이 오면 여기에 표시됩니다.</p>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-slate-900/90 backdrop-blur-lg border-t border-slate-800">
+        <div class="max-w-lg mx-auto px-4">
+            <div class="flex items-center justify-around py-3">
+                <a href="../home/index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    <span class="text-xs">홈</span>
+                </a>
+                <a href="../explore/index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <span class="text-xs">탐색</span>
+                </a>
+                <a href="../projects/create.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+                    <div class="bg-gradient-to-r from-indigo-500 to-purple-500 p-2 rounded-xl">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs">등록</span>
+                </a>
+                <a href="../messages/index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                    <span class="text-xs">메시지</span>
+                </a>
+                <a href="../profile/index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span class="text-xs">프로필</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bottom padding for navigation -->
+    <div class="h-20"></div>
+
+    <!-- Tab switching script -->
+    <script>
+        document.querySelectorAll('[data-tab]').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active state from all tabs
+                document.querySelectorAll('[data-tab]').forEach(t => {
+                    t.classList.remove('text-white', 'border-indigo-500');
+                    t.classList.add('text-slate-400', 'border-transparent');
+                });
+                // Add active state to clicked tab
+                tab.classList.remove('text-slate-400', 'border-transparent');
+                tab.classList.add('text-white', 'border-indigo-500');
+            });
+        });
+    </script>
+</body>
+</html>

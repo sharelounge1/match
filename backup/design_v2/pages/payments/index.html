@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchUp - 결제 내역</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold">
+                <span class="gradient-text">MatchUp</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-slate-400 hover:text-white transition">프로젝트</a>
+                <a href="../contracts/index.html" class="text-slate-400 hover:text-white transition">계약서</a>
+                <a href="#" class="text-white font-medium">결제</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-slate-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </a>
+                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-2">결제 내역</h1>
+                <p class="text-slate-400">프로젝트 결제 및 수익 정산 내역을 확인하세요</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-wrap items-center gap-4 mb-8">
+                <select class="px-4 py-2 bg-slate-900/50 border border-slate-800 rounded-lg text-white focus:border-indigo-500 focus:outline-none">
+                    <option value="">전체 유형</option>
+                    <option value="project">프로젝트 등록비</option>
+                    <option value="subscription">구독료</option>
+                    <option value="revenue">수익 정산</option>
+                    <option value="refund">환불</option>
+                </select>
+                <select class="px-4 py-2 bg-slate-900/50 border border-slate-800 rounded-lg text-white focus:border-indigo-500 focus:outline-none">
+                    <option value="">전체 기간</option>
+                    <option value="7">최근 7일</option>
+                    <option value="30">최근 30일</option>
+                    <option value="90">최근 3개월</option>
+                    <option value="365">최근 1년</option>
+                </select>
+                <select class="px-4 py-2 bg-slate-900/50 border border-slate-800 rounded-lg text-white focus:border-indigo-500 focus:outline-none">
+                    <option value="">전체 상태</option>
+                    <option value="completed">완료</option>
+                    <option value="pending">처리중</option>
+                    <option value="failed">실패</option>
+                </select>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <div class="text-sm text-slate-400 mb-2">이번 달 지출</div>
+                    <div class="text-2xl font-bold">89,000원</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <div class="text-sm text-slate-400 mb-2">이번 달 수익</div>
+                    <div class="text-2xl font-bold text-green-400">340,500원</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <div class="text-sm text-slate-400 mb-2">순수익</div>
+                    <div class="text-2xl font-bold gradient-text">+251,500원</div>
+                </div>
+            </div>
+
+            <!-- Payment List -->
+            <div class="bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden">
+                <!-- Table Header -->
+                <div class="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-slate-800/50 text-sm text-slate-400 font-medium">
+                    <div class="col-span-4">내역</div>
+                    <div class="col-span-2">유형</div>
+                    <div class="col-span-2">금액</div>
+                    <div class="col-span-2">상태</div>
+                    <div class="col-span-2">날짜</div>
+                </div>
+
+                <!-- Payment Items -->
+                <div class="divide-y divide-slate-800">
+                    <!-- Item 1 -->
+                    <a href="detail.html" class="grid md:grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-800/30 transition items-center">
+                        <div class="col-span-4">
+                            <div class="font-medium">AI 운동 추천 서비스 - 수익 정산</div>
+                            <div class="text-sm text-slate-500 md:hidden mt-1">2025.01.15</div>
+                        </div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">수익 정산</span>
+                        </div>
+                        <div class="col-span-2 text-green-400 font-medium">+245,000원</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">완료</span>
+                        </div>
+                        <div class="col-span-2 text-slate-400 text-sm">2025.01.15</div>
+                    </a>
+
+                    <!-- Item 2 -->
+                    <a href="detail.html" class="grid md:grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-800/30 transition items-center">
+                        <div class="col-span-4">
+                            <div class="font-medium">프리미엄 구독 - 월간 요금</div>
+                            <div class="text-sm text-slate-500 md:hidden mt-1">2025.01.10</div>
+                        </div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">구독료</span>
+                        </div>
+                        <div class="col-span-2 text-white font-medium">-29,000원</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">완료</span>
+                        </div>
+                        <div class="col-span-2 text-slate-400 text-sm">2025.01.10</div>
+                    </a>
+
+                    <!-- Item 3 -->
+                    <a href="detail.html" class="grid md:grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-800/30 transition items-center">
+                        <div class="col-span-4">
+                            <div class="font-medium">AI 챗봇 프로젝트 - 등록비</div>
+                            <div class="text-sm text-slate-500 md:hidden mt-1">2025.01.08</div>
+                        </div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">프로젝트</span>
+                        </div>
+                        <div class="col-span-2 text-white font-medium">-50,000원</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">완료</span>
+                        </div>
+                        <div class="col-span-2 text-slate-400 text-sm">2025.01.08</div>
+                    </a>
+
+                    <!-- Item 4 -->
+                    <a href="detail.html" class="grid md:grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-800/30 transition items-center">
+                        <div class="col-span-4">
+                            <div class="font-medium">정산 자동화 서비스 - 수익 정산</div>
+                            <div class="text-sm text-slate-500 md:hidden mt-1">2025.01.05</div>
+                        </div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">수익 정산</span>
+                        </div>
+                        <div class="col-span-2 text-green-400 font-medium">+95,500원</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">완료</span>
+                        </div>
+                        <div class="col-span-2 text-slate-400 text-sm">2025.01.05</div>
+                    </a>
+
+                    <!-- Item 5 -->
+                    <a href="detail.html" class="grid md:grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-800/30 transition items-center">
+                        <div class="col-span-4">
+                            <div class="font-medium">운동 추천 프로젝트 - 등록비 환불</div>
+                            <div class="text-sm text-slate-500 md:hidden mt-1">2025.01.02</div>
+                        </div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded-full">환불</span>
+                        </div>
+                        <div class="col-span-2 text-green-400 font-medium">+10,000원</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">완료</span>
+                        </div>
+                        <div class="col-span-2 text-slate-400 text-sm">2025.01.02</div>
+                    </a>
+
+                    <!-- Item 6 -->
+                    <a href="detail.html" class="grid md:grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-800/30 transition items-center">
+                        <div class="col-span-4">
+                            <div class="font-medium">운동 추천 프로젝트 - 등록비</div>
+                            <div class="text-sm text-slate-500 md:hidden mt-1">2024.12.28</div>
+                        </div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">프로젝트</span>
+                        </div>
+                        <div class="col-span-2 text-white font-medium">-50,000원</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">완료</span>
+                        </div>
+                        <div class="col-span-2 text-slate-400 text-sm">2024.12.28</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center justify-center gap-2 mt-6">
+                <button class="px-3 py-2 text-slate-400 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="px-3 py-2 bg-indigo-500 text-white rounded-lg">1</button>
+                <button class="px-3 py-2 text-slate-400 hover:text-white transition">2</button>
+                <button class="px-3 py-2 text-slate-400 hover:text-white transition">3</button>
+                <button class="px-3 py-2 text-slate-400 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-xl font-bold gradient-text mb-4 md:mb-0">MatchUp</div>
+                <div class="flex items-center space-x-6 text-sm text-slate-500">
+                    <a href="#" class="hover:text-white transition">이용약관</a>
+                    <a href="#" class="hover:text-white transition">개인정보처리방침</a>
+                    <a href="#" class="hover:text-white transition">문의하기</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

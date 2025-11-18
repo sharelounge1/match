@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>역할 선택 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .role-card {
+            transition: all 0.2s ease;
+        }
+        .role-card:hover {
+            transform: translateY(-2px);
+        }
+        .role-card.selected {
+            border-color: #818CF8;
+            background: rgba(129, 140, 248, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Navigation -->
+    <nav class="border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="../home/index.html" class="text-2xl font-bold gradient-text">MatchUp</a>
+                <button class="text-slate-400 hover:text-white transition-colors text-sm">
+                    나중에 하기
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-4 py-12">
+        <!-- Progress Indicator -->
+        <div class="flex items-center justify-center mb-12">
+            <div class="flex items-center">
+                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 text-white text-sm font-semibold">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <span class="ml-2 text-slate-400">소개</span>
+            </div>
+            <div class="w-12 h-0.5 bg-indigo-500 mx-3"></div>
+            <div class="flex items-center">
+                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-semibold">
+                    2
+                </div>
+                <span class="ml-2 text-white font-medium">역할 선택</span>
+            </div>
+            <div class="w-12 h-0.5 bg-slate-700 mx-3"></div>
+            <div class="flex items-center">
+                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-700 text-slate-400 text-sm font-semibold">
+                    3
+                </div>
+                <span class="ml-2 text-slate-500">프로필</span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">당신의 역할을 선택하세요</h1>
+            <p class="text-slate-400">
+                여러 역할을 선택할 수 있습니다. 나중에 언제든지 변경할 수 있어요.
+            </p>
+        </div>
+
+        <!-- Role Selection -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <!-- Developer -->
+            <label class="role-card bg-slate-900/50 border border-slate-800 rounded-2xl p-6 cursor-pointer block">
+                <input type="checkbox" name="roles" value="developer" class="hidden">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold text-white">개발자</h3>
+                            <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-indigo-400 hidden check-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            웹, 앱, AI 등 기술을 활용해 프로젝트를 구현합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">Frontend</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">Backend</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">Mobile</span>
+                        </div>
+                    </div>
+                </div>
+            </label>
+
+            <!-- Business -->
+            <label class="role-card bg-slate-900/50 border border-slate-800 rounded-2xl p-6 cursor-pointer block">
+                <input type="checkbox" name="roles" value="business" class="hidden">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold text-white">기획자</h3>
+                            <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-indigo-400 hidden check-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            아이디어를 발굴하고 비즈니스 모델을 설계합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">기획</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">PM</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">사업개발</span>
+                        </div>
+                    </div>
+                </div>
+            </label>
+
+            <!-- Marketing -->
+            <label class="role-card bg-slate-900/50 border border-slate-800 rounded-2xl p-6 cursor-pointer block">
+                <input type="checkbox" name="roles" value="marketing" class="hidden">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold text-white">마케터</h3>
+                            <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-indigo-400 hidden check-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            제품의 성장과 마케팅 전략을 담당합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">그로스</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">콘텐츠</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">SEO</span>
+                        </div>
+                    </div>
+                </div>
+            </label>
+
+            <!-- Design -->
+            <label class="role-card bg-slate-900/50 border border-slate-800 rounded-2xl p-6 cursor-pointer block">
+                <input type="checkbox" name="roles" value="design" class="hidden">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold text-white">디자이너</h3>
+                            <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center">
+                                <svg class="w-3 h-3 text-indigo-400 hidden check-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            UI/UX 디자인과 브랜딩을 담당합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">UI/UX</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">브랜딩</span>
+                            <span class="px-2 py-1 bg-slate-800 rounded text-xs text-slate-400">그래픽</span>
+                        </div>
+                    </div>
+                </div>
+            </label>
+        </div>
+
+        <!-- Selected Count -->
+        <div class="text-center mb-8">
+            <p class="text-slate-400 text-sm">
+                선택된 역할: <span class="text-white font-medium selected-count">0</span>개
+            </p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between">
+            <a
+                href="intro.html"
+                class="inline-flex items-center px-6 py-3 border border-slate-700 text-white font-medium rounded-lg hover:bg-slate-800 transition-colors"
+            >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                </svg>
+                이전
+            </a>
+            <a
+                href="profile.html"
+                class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:from-indigo-600 hover:to-purple-600 transition-all"
+            >
+                다음
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm">
+                    &copy; 2024 MatchUp. All rights reserved.
+                </p>
+                <div class="flex gap-6">
+                    <a href="../legal/terms.html" class="text-slate-500 hover:text-slate-400 text-sm">
+                        이용약관
+                    </a>
+                    <a href="../legal/privacy.html" class="text-slate-500 hover:text-slate-400 text-sm">
+                        개인정보처리방침
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Role selection logic
+        document.querySelectorAll('.role-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const checkbox = this.querySelector('input[type="checkbox"]');
+                const checkIcon = this.querySelector('.check-icon');
+
+                checkbox.checked = !checkbox.checked;
+
+                if (checkbox.checked) {
+                    this.classList.add('selected');
+                    checkIcon.classList.remove('hidden');
+                } else {
+                    this.classList.remove('selected');
+                    checkIcon.classList.add('hidden');
+                }
+
+                // Update count
+                const selectedCount = document.querySelectorAll('.role-card input:checked').length;
+                document.querySelector('.selected-count').textContent = selectedCount;
+            });
+        });
+    </script>
+</body>
+</html>

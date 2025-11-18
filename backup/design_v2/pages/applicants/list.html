@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지원자 관리 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold">
+                <a href="../../index.html" class="gradient-text">MatchUp</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="../explore/index.html" class="text-slate-400 hover:text-white transition">프로젝트</a>
+                <a href="../my-projects/posted.html" class="text-white font-medium">내 프로젝트</a>
+                <a href="../messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="../notifications/index.html" class="text-slate-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </a>
+                <a href="../profile/index.html" class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <div class="flex items-center gap-2 text-sm text-slate-400 mb-4">
+                    <a href="../my-projects/posted.html" class="hover:text-white transition">내 프로젝트</a>
+                    <span>/</span>
+                    <span class="text-white">지원자 관리</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-3xl font-bold mb-2">지원자 관리</h1>
+                        <p class="text-slate-400">AI 기반 운동 추천 서비스</p>
+                    </div>
+                    <a href="../projects/detail.html" class="px-4 py-2 border border-slate-700 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">
+                        프로젝트 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                    <div class="text-2xl font-bold">12</div>
+                    <div class="text-sm text-slate-400">전체 지원자</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                    <div class="text-2xl font-bold text-amber-400">8</div>
+                    <div class="text-sm text-slate-400">검토중</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                    <div class="text-2xl font-bold text-purple-400">3</div>
+                    <div class="text-sm text-slate-400">후보</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800">
+                    <div class="text-2xl font-bold text-green-400">1</div>
+                    <div class="text-sm text-slate-400">수락</div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex gap-2 mb-6 overflow-x-auto">
+                <button class="px-4 py-2 bg-indigo-500/20 text-indigo-400 rounded-lg text-sm font-medium whitespace-nowrap">전체 (12)</button>
+                <button class="px-4 py-2 bg-slate-800 text-slate-400 rounded-lg text-sm hover:text-white transition whitespace-nowrap">검토중 (8)</button>
+                <button class="px-4 py-2 bg-slate-800 text-slate-400 rounded-lg text-sm hover:text-white transition whitespace-nowrap">후보 (3)</button>
+                <button class="px-4 py-2 bg-slate-800 text-slate-400 rounded-lg text-sm hover:text-white transition whitespace-nowrap">수락 (1)</button>
+                <button class="px-4 py-2 bg-slate-800 text-slate-400 rounded-lg text-sm hover:text-white transition whitespace-nowrap">거절 (0)</button>
+            </div>
+
+            <!-- Filter by Role -->
+            <div class="flex items-center gap-4 mb-6">
+                <span class="text-sm text-slate-400">역할:</span>
+                <div class="flex gap-2">
+                    <button class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm hover:bg-slate-700 transition">전체</button>
+                    <button class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">개발자 (8)</button>
+                    <button class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm hover:bg-slate-700 transition">디자이너 (4)</button>
+                </div>
+            </div>
+
+            <!-- Applicant Cards -->
+            <div class="space-y-4">
+                <!-- Applicant 1 - Candidate -->
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/50 glow-card transition">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex items-start gap-4 flex-1">
+                            <div class="w-14 h-14 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex-shrink-0"></div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h3 class="font-semibold">박개발</h3>
+                                    <span class="px-2 py-0.5 bg-purple-500/20 text-purple-400 text-xs rounded-full">후보</span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">풀스택 개발자</span>
+                                    <span class="text-sm text-slate-400">경력 5년</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">React Native</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Node.js</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Python</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">AWS</span>
+                                </div>
+                                <p class="text-sm text-slate-400">헬스케어 앱 개발 경험이 있으며, AI/ML 프로젝트 참여 이력이 있습니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col gap-2 md:items-end">
+                            <a href="detail.html" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                프로필 보기
+                            </a>
+                            <a href="../meetings/request.html" class="px-4 py-2 border border-slate-700 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">
+                                미팅 신청
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-800">
+                        <span class="text-sm text-slate-500">지원일: 2025.01.18</span>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-lg hover:bg-green-500/30 transition">
+                                수락
+                            </button>
+                            <button class="px-3 py-1 bg-red-500/20 text-red-400 text-sm rounded-lg hover:bg-red-500/30 transition">
+                                거절
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applicant 2 - Reviewing -->
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-slate-700 glow-card transition">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex items-start gap-4 flex-1">
+                            <div class="w-14 h-14 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full flex-shrink-0"></div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h3 class="font-semibold">김디자인</h3>
+                                    <span class="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full">검토중</span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-2 py-1 bg-pink-500/20 text-pink-400 text-xs rounded-full">UI/UX 디자이너</span>
+                                    <span class="text-sm text-slate-400">경력 3년</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Figma</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">앱 디자인</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">프로토타이핑</span>
+                                </div>
+                                <p class="text-sm text-slate-400">피트니스 앱 디자인 포트폴리오가 있습니다. 사용자 리서치 경험 보유.</p>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col gap-2 md:items-end">
+                            <a href="detail.html" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                프로필 보기
+                            </a>
+                            <a href="../meetings/request.html" class="px-4 py-2 border border-slate-700 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">
+                                미팅 신청
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-800">
+                        <span class="text-sm text-slate-500">지원일: 2025.01.17</span>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 bg-purple-500/20 text-purple-400 text-sm rounded-lg hover:bg-purple-500/30 transition">
+                                후보로 이동
+                            </button>
+                            <button class="px-3 py-1 bg-red-500/20 text-red-400 text-sm rounded-lg hover:bg-red-500/30 transition">
+                                거절
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applicant 3 - Accepted -->
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-green-500/30 hover:border-green-500/50 glow-card transition">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex items-start gap-4 flex-1">
+                            <div class="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex-shrink-0"></div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h3 class="font-semibold">이백엔드</h3>
+                                    <span class="px-2 py-0.5 bg-green-500/20 text-green-400 text-xs rounded-full">수락됨</span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">백엔드 개발자</span>
+                                    <span class="text-sm text-slate-400">경력 4년</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Node.js</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Python</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">PostgreSQL</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Docker</span>
+                                </div>
+                                <p class="text-sm text-slate-400">AI 추천 시스템 개발 경험이 있습니다. 현재 계약서 검토 중.</p>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col gap-2 md:items-end">
+                            <a href="detail.html" class="px-4 py-2 border border-slate-700 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">
+                                프로필 보기
+                            </a>
+                            <a href="../contracts/create.html" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                계약서 작성
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-800">
+                        <span class="text-sm text-slate-500">수락일: 2025.01.19</span>
+                        <span class="text-sm text-green-400">계약 진행 중</span>
+                    </div>
+                </div>
+
+                <!-- Applicant 4 - Reviewing -->
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-slate-700 glow-card transition">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex items-start gap-4 flex-1">
+                            <div class="w-14 h-14 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex-shrink-0"></div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h3 class="font-semibold">최프론트</h3>
+                                    <span class="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full">검토중</span>
+                                </div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">프론트엔드 개발자</span>
+                                    <span class="text-sm text-slate-400">경력 2년</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">React</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">TypeScript</span>
+                                    <span class="px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded">Next.js</span>
+                                </div>
+                                <p class="text-sm text-slate-400">모바일 앱 개발 경험은 없지만 웹 개발에서 실력을 발휘합니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex md:flex-col gap-2 md:items-end">
+                            <a href="detail.html" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                프로필 보기
+                            </a>
+                            <a href="../meetings/request.html" class="px-4 py-2 border border-slate-700 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition">
+                                미팅 신청
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-800">
+                        <span class="text-sm text-slate-500">지원일: 2025.01.16</span>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 bg-purple-500/20 text-purple-400 text-sm rounded-lg hover:bg-purple-500/30 transition">
+                                후보로 이동
+                            </button>
+                            <button class="px-3 py-1 bg-red-500/20 text-red-400 text-sm rounded-lg hover:bg-red-500/30 transition">
+                                거절
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center justify-center gap-2 mt-8">
+                <button class="px-3 py-2 bg-slate-800 rounded-lg text-sm text-slate-400 hover:text-white transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="px-3 py-2 bg-indigo-500 rounded-lg text-sm font-medium">1</button>
+                <button class="px-3 py-2 bg-slate-800 rounded-lg text-sm text-slate-400 hover:text-white transition">2</button>
+                <button class="px-3 py-2 bg-slate-800 rounded-lg text-sm text-slate-400 hover:text-white transition">3</button>
+                <button class="px-3 py-2 bg-slate-800 rounded-lg text-sm text-slate-400 hover:text-white transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-xl font-bold gradient-text mb-4 md:mb-0">MatchUp</div>
+                <div class="flex items-center space-x-6 text-sm text-slate-500">
+                    <a href="../legal/terms.html" class="hover:text-white transition">이용약관</a>
+                    <a href="../legal/privacy.html" class="hover:text-white transition">개인정보처리방침</a>
+                    <a href="../support/contact.html" class="hover:text-white transition">문의하기</a>
+                </div>
+            </div>
+            <div class="text-center text-sm text-slate-600 mt-8">
+                &copy; 2025 MatchUp. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

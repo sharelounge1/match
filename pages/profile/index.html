@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내 프로필 - MatchUp</title>
+    <title>마이페이지 - MatchUp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -17,41 +17,69 @@
         .glow-card:hover {
             box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
         }
+        .gradient-btn {
+            background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+        }
+        .gradient-btn:hover {
+            background: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%);
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-white min-h-screen">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/pages/home/index.html" class="text-2xl font-bold">
-                <span class="gradient-text">MatchUp</span>
-            </a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="/pages/explore/index.html" class="text-slate-400 hover:text-white transition">프로젝트 탐색</a>
-                <a href="/pages/my-projects/index.html" class="text-slate-400 hover:text-white transition">내 프로젝트</a>
-                <a href="/pages/messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="/pages/notifications/index.html" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                    </svg>
-                </a>
-                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+    <!-- Header -->
+    <header class="border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="/pages/index.html" class="text-2xl font-bold gradient-text">MatchUp</a>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="/pages/explore/index.html" class="text-slate-400 hover:text-white transition">탐색</a>
+                    <a href="/pages/my-projects/index.html" class="text-slate-400 hover:text-white transition">나의 프로젝트</a>
+                    <a href="/pages/guide/index.html" class="text-slate-400 hover:text-white transition">이용방법</a>
+                    <a href="/pages/meetings/index.html" class="text-slate-400 hover:text-white transition">미팅</a>
+                    <a href="/pages/messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="flex items-center gap-4">
+                    <!-- Mileage -->
+                    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
+                        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path>
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-sm font-medium">50,000</span>
+                    </div>
+
+                    <!-- Notifications -->
+                    <a href="/pages/notifications/index.html" class="relative text-slate-400 hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs flex items-center justify-center">3</span>
+                    </a>
+
+                    <!-- Profile -->
+                    <a href="/pages/profile/index.html" class="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                        <span class="text-sm font-medium">김</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Content -->
-    <main class="pt-24 pb-12 px-6">
-        <div class="max-w-4xl mx-auto">
-            <!-- Profile Header -->
-            <div class="bg-slate-900/50 rounded-2xl p-8 border border-slate-800 mb-6">
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Welcome & Profile Header -->
+        <section class="mb-8">
+            <div class="bg-slate-900/50 rounded-2xl p-8 border border-slate-800">
                 <div class="flex flex-col md:flex-row items-start gap-6">
                     <!-- Profile Photo -->
                     <div class="relative">
                         <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-3xl md:text-4xl font-bold">
-                            JK
+                            김
                         </div>
                         <div class="absolute bottom-0 right-0 w-6 h-6 bg-green-500 rounded-full border-4 border-slate-900"></div>
                     </div>
@@ -59,13 +87,13 @@
                     <!-- Profile Info -->
                     <div class="flex-1">
                         <div class="flex flex-col md:flex-row md:items-center gap-4 mb-4">
-                            <h1 class="text-2xl md:text-3xl font-bold">김지훈</h1>
-                            <div class="flex items-center gap-2">
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-sm rounded-full">개발자</span>
-                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-sm rounded-full">운영자</span>
-                            </div>
+                            <h1 class="text-2xl md:text-3xl font-bold">안녕하세요, <span class="gradient-text">김민수</span>님!</h1>
                         </div>
-                        <p class="text-slate-400 mb-4">풀스택 개발자 | 스타트업 경험 3년 | AI/ML 관심</p>
+                        <p class="text-slate-400 mb-2">풀스택 개발자 | 스타트업 경험 3년 | AI/ML 관심</p>
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-sm rounded-full">개발자</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-sm rounded-full">운영자</span>
+                        </div>
                         <div class="flex items-center gap-4 text-sm">
                             <div class="flex items-center gap-1 text-yellow-400">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -80,30 +108,139 @@
                     </div>
 
                     <!-- Edit Button -->
-                    <a href="edit.html" class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-2 rounded-lg hover:opacity-90 transition">
+                    <a href="edit.html" class="gradient-btn text-white px-6 py-2 rounded-lg hover:opacity-90 transition">
                         프로필 수정
                     </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-4 mb-6">
-                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 text-center">
-                    <div class="text-3xl font-bold gradient-text">12</div>
-                    <div class="text-slate-500 mt-1 text-sm">완료 프로젝트</div>
+        <!-- Quick Actions -->
+        <section class="mb-8">
+            <div class="flex flex-wrap gap-4">
+                <a href="/pages/projects/create.html" class="gradient-btn px-6 py-3 rounded-xl font-medium hover:opacity-90 transition flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    새 프로젝트 등록
+                </a>
+                <a href="/pages/explore/index.html" class="px-6 py-3 rounded-xl font-medium border border-slate-700 hover:border-indigo-500 transition flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    프로젝트 탐색
+                </a>
+                <a href="/pages/payments/mileage.html" class="px-6 py-3 rounded-xl font-medium border border-slate-700 hover:border-yellow-500 transition flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    마일리지 충전
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Overview -->
+        <section class="mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
+                    <p class="text-slate-400 text-sm mb-1">진행중 프로젝트</p>
+                    <p class="text-2xl font-bold">3</p>
                 </div>
-                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 text-center">
-                    <div class="text-3xl font-bold gradient-text">8.5M</div>
-                    <div class="text-slate-500 mt-1 text-sm">총 수익 (원)</div>
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
+                    <p class="text-slate-400 text-sm mb-1">받은 지원서</p>
+                    <p class="text-2xl font-bold">12</p>
                 </div>
-                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 text-center">
-                    <div class="text-3xl font-bold gradient-text">4.8</div>
-                    <div class="text-slate-500 mt-1 text-sm">평균 평점</div>
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
+                    <p class="text-slate-400 text-sm mb-1">예정된 미팅</p>
+                    <p class="text-2xl font-bold">2</p>
+                </div>
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
+                    <p class="text-slate-400 text-sm mb-1">새 메시지</p>
+                    <p class="text-2xl font-bold">5</p>
+                </div>
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
+                    <p class="text-slate-400 text-sm mb-1">총 수익</p>
+                    <p class="text-2xl font-bold">8.5M</p>
                 </div>
             </div>
+        </section>
 
+        <!-- My Active Projects -->
+        <section class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-semibold">내 진행중 프로젝트</h2>
+                <a href="/pages/my-projects/index.html" class="text-indigo-400 hover:text-indigo-300 text-sm">전체보기</a>
+            </div>
+            <div class="space-y-4">
+                <!-- Active Project 1 -->
+                <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">소셜 독서 플랫폼</h3>
+                                <p class="text-slate-400 text-sm">역할: 프론트엔드 개발자 | 지분 25%</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">진행중</span>
+                            <p class="text-slate-500 text-xs mt-2">다음 미팅: 내일 오후 3시</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Active Project 2 -->
+                <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">반려동물 케어 서비스</h3>
+                                <p class="text-slate-400 text-sm">역할: 프로젝트 오너 | 지분 40%</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">팀 구성중</span>
+                            <p class="text-slate-500 text-xs mt-2">새 지원서 3건</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Active Project 3 -->
+                <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">구독 관리 대시보드</h3>
+                                <p class="text-slate-400 text-sm">역할: 백엔드 개발자 | 지분 30%</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">진행중</span>
+                            <p class="text-slate-500 text-xs mt-2">마감 D-14</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills & Portfolio -->
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
             <!-- Skills & Roles -->
-            <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
+            <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
                 <h2 class="text-lg font-semibold mb-4">역할 & 스킬</h2>
                 <div class="mb-4">
                     <h3 class="text-sm text-slate-500 mb-2">역할</h3>
@@ -126,48 +263,35 @@
             </div>
 
             <!-- Portfolio Preview -->
-            <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
+            <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold">포트폴리오</h2>
-                    <a href="portfolio.html" class="text-indigo-400 hover:text-indigo-300 transition text-sm">관리하기 &rarr;</a>
+                    <a href="portfolio.html" class="text-indigo-400 hover:text-indigo-300 transition text-sm">관리하기</a>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-3 gap-3">
                     <!-- Portfolio Item 1 -->
                     <div class="aspect-video bg-slate-800 rounded-lg overflow-hidden relative group cursor-pointer">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-3">
-                            <h4 class="text-sm font-medium truncate">AI 챗봇 서비스</h4>
+                        <div class="absolute bottom-0 left-0 right-0 p-2">
+                            <h4 class="text-xs font-medium truncate">AI 챗봇</h4>
                         </div>
                         <div class="absolute inset-0 bg-indigo-500/20 opacity-0 group-hover:opacity-100 transition"></div>
                     </div>
                     <!-- Portfolio Item 2 -->
                     <div class="aspect-video bg-slate-800 rounded-lg overflow-hidden relative group cursor-pointer">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-3">
-                            <h4 class="text-sm font-medium truncate">이커머스 플랫폼</h4>
+                        <div class="absolute bottom-0 left-0 right-0 p-2">
+                            <h4 class="text-xs font-medium truncate">이커머스</h4>
                         </div>
                         <div class="absolute inset-0 bg-indigo-500/20 opacity-0 group-hover:opacity-100 transition"></div>
                     </div>
                     <!-- Portfolio Item 3 -->
                     <div class="aspect-video bg-slate-800 rounded-lg overflow-hidden relative group cursor-pointer">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-3">
-                            <h4 class="text-sm font-medium truncate">데이터 대시보드</h4>
+                        <div class="absolute bottom-0 left-0 right-0 p-2">
+                            <h4 class="text-xs font-medium truncate">대시보드</h4>
                         </div>
                         <div class="absolute inset-0 bg-indigo-500/20 opacity-0 group-hover:opacity-100 transition"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Activity Stats -->
-            <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
-                <h2 class="text-lg font-semibold mb-4">활동 통계</h2>
-                <div class="h-48 flex items-center justify-center border border-slate-700 rounded-lg bg-slate-800/50">
-                    <div class="text-center">
-                        <svg class="w-12 h-12 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                        <p class="text-slate-500 text-sm">활동 통계 차트</p>
                     </div>
                 </div>
             </div>
@@ -175,18 +299,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="text-xl font-bold gradient-text mb-4 md:mb-0">MatchUp</div>
-                <div class="flex items-center space-x-6 text-sm text-slate-500">
-                    <a href="/pages/legal/terms.html" class="hover:text-white transition">이용약관</a>
-                    <a href="/pages/legal/privacy.html" class="hover:text-white transition">개인정보처리방침</a>
-                    <a href="/pages/support/contact.html" class="hover:text-white transition">문의하기</a>
+    <footer class="border-t border-slate-800 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-slate-500 text-sm">
+                    2025 MatchUp. All rights reserved.
                 </div>
-            </div>
-            <div class="text-center text-sm text-slate-600 mt-8">
-                &copy; 2025 MatchUp. All rights reserved.
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="/pages/legal/terms.html" class="text-slate-400 hover:text-white transition">이용약관</a>
+                    <a href="/pages/legal/privacy.html" class="text-slate-400 hover:text-white transition">개인정보처리방침</a>
+                    <a href="/pages/support/index.html" class="text-slate-400 hover:text-white transition">고객센터</a>
+                </div>
             </div>
         </div>
     </footer>
