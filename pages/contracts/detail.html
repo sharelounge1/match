@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchUp - 계약서 상세</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold">
+                <span class="gradient-text">MatchUp</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-slate-400 hover:text-white transition">프로젝트</a>
+                <a href="index.html" class="text-white font-medium">계약서</a>
+                <a href="../payments/index.html" class="text-slate-400 hover:text-white transition">결제</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-slate-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </a>
+                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Back Button -->
+            <a href="index.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition mb-6">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                계약서 목록으로
+            </a>
+
+            <!-- Contract Header -->
+            <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 mb-6">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <h1 class="text-2xl font-bold">AI 기반 운동 추천 서비스</h1>
+                            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-sm rounded-full">서명 대기</span>
+                        </div>
+                        <p class="text-slate-400">계약서 번호: CTR-2025-0115-001</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="px-4 py-2 border border-slate-700 rounded-lg text-slate-300 hover:bg-slate-800 transition flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            PDF 다운로드
+                        </button>
+                        <a href="sign.html" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg text-white hover:opacity-90 transition">
+                            서명하기
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div>
+                        <div class="text-slate-500 mb-1">생성일</div>
+                        <div class="text-white">2025.01.15</div>
+                    </div>
+                    <div>
+                        <div class="text-slate-500 mb-1">만료일</div>
+                        <div class="text-white">2025.01.22</div>
+                    </div>
+                    <div>
+                        <div class="text-slate-500 mb-1">계약 기간</div>
+                        <div class="text-white">12개월</div>
+                    </div>
+                    <div>
+                        <div class="text-slate-500 mb-1">상태</div>
+                        <div class="text-amber-400">서명 대기중</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parties -->
+            <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 mb-6">
+                <h2 class="text-lg font-semibold mb-4">계약 당사자</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-800/50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-medium">
+                                김
+                            </div>
+                            <div>
+                                <div class="font-medium">김철수</div>
+                                <div class="text-sm text-slate-400">아이디어 보유자</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">서명 완료</span>
+                            <span class="text-xs text-slate-500">2025.01.15 14:30</span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800/50 rounded-lg">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-sm font-medium">
+                                박
+                            </div>
+                            <div>
+                                <div class="font-medium">박영희</div>
+                                <div class="text-sm text-slate-400">개발자</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded-full">서명 대기</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contract Conditions -->
+            <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800 mb-6">
+                <h2 class="text-lg font-semibold mb-4">계약 조건</h2>
+
+                <!-- Equity Distribution -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-medium text-slate-400 mb-3">지분 배분</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                                <span>김철수 (아이디어 보유자)</span>
+                            </div>
+                            <span class="font-semibold text-indigo-400">60%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <span>박영희 (개발자)</span>
+                            </div>
+                            <span class="font-semibold text-blue-400">40%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue Distribution -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-medium text-slate-400 mb-3">수익 배분</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                                <span>김철수 (아이디어 보유자)</span>
+                            </div>
+                            <span class="font-semibold text-indigo-400">55%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <span>박영희 (개발자)</span>
+                            </div>
+                            <span class="font-semibold text-blue-400">45%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roles and Responsibilities -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-medium text-slate-400 mb-3">역할과 책임</h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-slate-800/50 rounded-lg">
+                            <div class="font-medium mb-2">김철수 (아이디어 보유자)</div>
+                            <ul class="text-sm text-slate-400 space-y-1">
+                                <li>- 사업 방향성 및 전략 수립</li>
+                                <li>- 투자 유치 및 파트너십 관리</li>
+                                <li>- 마케팅 및 영업 총괄</li>
+                            </ul>
+                        </div>
+                        <div class="p-3 bg-slate-800/50 rounded-lg">
+                            <div class="font-medium mb-2">박영희 (개발자)</div>
+                            <ul class="text-sm text-slate-400 space-y-1">
+                                <li>- 서비스 개발 및 기술 아키텍처 설계</li>
+                                <li>- 서버 인프라 구축 및 관리</li>
+                                <li>- 기술 관련 의사결정</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duration -->
+                <div>
+                    <h3 class="text-sm font-medium text-slate-400 mb-3">계약 기간</h3>
+                    <div class="p-3 bg-slate-800/50 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <span>계약 시작일</span>
+                            <span class="text-white">2025.01.22</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <span>계약 종료일</span>
+                            <span class="text-white">2026.01.21</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <span>자동 연장</span>
+                            <span class="text-green-400">예 (1년 단위)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contract History -->
+            <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                <h2 class="text-lg font-semibold mb-4">계약 이력</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium">김철수님이 서명했습니다</span>
+                                <span class="text-sm text-slate-500">2025.01.15 14:30</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium">박영희님에게 서명 요청을 보냈습니다</span>
+                                <span class="text-sm text-slate-500">2025.01.15 14:31</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-2 h-2 bg-slate-500 rounded-full mt-2"></div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium">계약서가 생성되었습니다</span>
+                                <span class="text-sm text-slate-500">2025.01.15 14:25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-xl font-bold gradient-text mb-4 md:mb-0">MatchUp</div>
+                <div class="flex items-center space-x-6 text-sm text-slate-500">
+                    <a href="#" class="hover:text-white transition">이용약관</a>
+                    <a href="#" class="hover:text-white transition">개인정보처리방침</a>
+                    <a href="#" class="hover:text-white transition">문의하기</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

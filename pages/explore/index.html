@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 탐색 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+        }
+        .gradient-btn:hover {
+            background: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <!-- Header -->
+    <header class="border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="/pages/home/index.html" class="text-2xl font-bold gradient-text">MatchUp</a>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="/pages/explore/index.html" class="text-white font-medium">탐색</a>
+                    <a href="/pages/my-projects/index.html" class="text-slate-400 hover:text-white transition">나의 프로젝트</a>
+                    <a href="/pages/meetings/index.html" class="text-slate-400 hover:text-white transition">미팅</a>
+                    <a href="/pages/messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="flex items-center gap-4">
+                    <!-- Notifications -->
+                    <a href="/pages/notifications/index.html" class="relative text-slate-400 hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs flex items-center justify-center">3</span>
+                    </a>
+
+                    <!-- Profile -->
+                    <a href="/pages/profile/index.html" class="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                        <span class="text-sm font-medium">김</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Page Title & Search -->
+        <section class="mb-8">
+            <h1 class="text-3xl font-bold mb-6">프로젝트 탐색</h1>
+
+            <!-- Search Bar -->
+            <div class="relative">
+                <input
+                    type="text"
+                    placeholder="프로젝트, 기술 스택, 역할로 검색..."
+                    class="w-full bg-slate-900/50 border border-slate-800 rounded-xl px-5 py-4 pl-12 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition"
+                >
+                <svg class="w-5 h-5 text-slate-500 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 gradient-btn px-4 py-2 rounded-lg text-sm font-medium">
+                    검색
+                </button>
+            </div>
+        </section>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filter Sidebar -->
+            <aside class="lg:w-64 flex-shrink-0">
+                <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 sticky top-8">
+                    <h3 class="font-semibold mb-4">필터</h3>
+
+                    <!-- Role Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm text-slate-400 mb-3">역할</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">프론트엔드</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">백엔드</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">풀스택</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">디자이너</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">마케터</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">AI/ML</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm text-slate-400 mb-3">분야</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">앱</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">웹</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">SaaS</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">커머스</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">핀테크</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">에듀테크</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Equity Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm text-slate-400 mb-3">지분 조건</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">10% 이상</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">20% 이상</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">30% 이상</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">40% 이상</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Status Filter -->
+                    <div class="mb-6">
+                        <h4 class="text-sm text-slate-400 mb-3">프로젝트 상태</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">아이디어</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">기획 완료</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">MVP 단계</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">개발중</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Reset Button -->
+                    <button class="w-full py-2 border border-slate-700 rounded-lg text-sm text-slate-400 hover:text-white hover:border-slate-600 transition">
+                        필터 초기화
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Project List -->
+            <div class="flex-1">
+                <!-- Sort Options -->
+                <div class="flex items-center justify-between mb-6">
+                    <p class="text-slate-400 text-sm">총 <span class="text-white font-medium">128</span>개의 프로젝트</p>
+                    <select class="bg-slate-900/50 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500">
+                        <option>최신순</option>
+                        <option>인기순</option>
+                        <option>지분 높은순</option>
+                        <option>마감 임박순</option>
+                    </select>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
+                    <!-- Project Card 1 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">앱</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">MVP 단계</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">AI 헬스케어 코칭 앱</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">개인 맞춤형 운동 및 식단을 AI가 추천하는 헬스케어 플랫폼입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">개발자</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 text-xs rounded-full">디자이너</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 40%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-green-400 to-blue-500"></div>
+                                <span class="text-sm text-slate-400">박지영</span>
+                            </div>
+                            <span class="text-xs text-slate-500">3일 전</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 2 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">웹</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">아이디어</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">프리랜서 매칭 플랫폼</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">기업과 프리랜서를 효율적으로 연결하는 B2B 플랫폼입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">풀스택</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 35%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-orange-400 to-red-500"></div>
+                                <span class="text-sm text-slate-400">이준호</span>
+                            </div>
+                            <span class="text-xs text-slate-500">5일 전</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 3 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">SaaS</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">개발중</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">스마트 재고관리 시스템</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">중소기업을 위한 클라우드 기반 재고관리 솔루션입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded-full">마케터</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">백엔드</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 25%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"></div>
+                                <span class="text-sm text-slate-400">최서연</span>
+                            </div>
+                            <span class="text-xs text-slate-500">1주 전</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 4 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">커머스</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">아이디어</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">친환경 제품 마켓플레이스</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">지속가능한 친환경 제품만을 큐레이션하는 이커머스 플랫폼입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">풀스택</span>
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 text-xs rounded-full">디자이너</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 45%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500"></div>
+                                <span class="text-sm text-slate-400">김하은</span>
+                            </div>
+                            <span class="text-xs text-slate-500">오늘</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 5 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">에듀테크</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">기획완료</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">AI 영어 회화 튜터</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">AI와 실시간 대화하며 영어 회화를 연습하는 학습 앱입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">AI/ML</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 50%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-violet-400 to-purple-500"></div>
+                                <span class="text-sm text-slate-400">정우진</span>
+                            </div>
+                            <span class="text-xs text-slate-500">어제</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 6 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded-full">핀테크</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">MVP 단계</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">MZ세대 자산관리 앱</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">게이미피케이션을 적용한 재미있는 자산관리 서비스입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded-full">마케터</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 30%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-pink-400 to-rose-500"></div>
+                                <span class="text-sm text-slate-400">한소희</span>
+                            </div>
+                            <span class="text-xs text-slate-500">2일 전</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 7 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">앱</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">아이디어</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">반려동물 케어 서비스</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">반려동물의 건강관리와 커뮤니티를 제공하는 종합 플랫폼입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">프론트엔드</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 35%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-amber-400 to-orange-500"></div>
+                                <span class="text-sm text-slate-400">윤채원</span>
+                            </div>
+                            <span class="text-xs text-slate-500">4일 전</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 8 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">웹</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">개발중</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">온라인 클래스 마켓</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">누구나 강사가 될 수 있는 개인 온라인 클래스 플랫폼입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-pink-500/20 text-pink-400 text-xs rounded-full">디자이너</span>
+                                <span class="px-2 py-1 bg-amber-500/20 text-amber-400 text-xs rounded-full">마케터</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 20%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                                <span class="text-sm text-slate-400">김태현</span>
+                            </div>
+                            <span class="text-xs text-slate-500">6일 전</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 9 -->
+                    <a href="/pages/projects/detail.html" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 hover:border-indigo-500/50 transition glow-card block">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">SaaS</span>
+                            <span class="px-2 py-1 bg-slate-800 text-slate-400 text-xs rounded-full">기획완료</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">팀 협업 대시보드</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">원격 팀을 위한 실시간 협업과 프로젝트 관리 도구입니다.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">백엔드</span>
+                            </div>
+                            <div class="text-indigo-400 font-medium">지분 40%</div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-r from-rose-400 to-pink-500"></div>
+                                <span class="text-sm text-slate-400">송민지</span>
+                            </div>
+                            <span class="text-xs text-slate-500">1주 전</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex items-center justify-center gap-2">
+                    <button class="w-10 h-10 rounded-lg border border-slate-800 flex items-center justify-center text-slate-400 hover:border-slate-700 transition disabled:opacity-50" disabled>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 rounded-lg bg-indigo-500 flex items-center justify-center font-medium">1</button>
+                    <button class="w-10 h-10 rounded-lg border border-slate-800 flex items-center justify-center text-slate-400 hover:border-slate-700 transition">2</button>
+                    <button class="w-10 h-10 rounded-lg border border-slate-800 flex items-center justify-center text-slate-400 hover:border-slate-700 transition">3</button>
+                    <span class="text-slate-500">...</span>
+                    <button class="w-10 h-10 rounded-lg border border-slate-800 flex items-center justify-center text-slate-400 hover:border-slate-700 transition">15</button>
+                    <button class="w-10 h-10 rounded-lg border border-slate-800 flex items-center justify-center text-slate-400 hover:border-slate-700 transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-slate-500 text-sm">
+                    2024 MatchUp. All rights reserved.
+                </div>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="/pages/legal/terms.html" class="text-slate-400 hover:text-white transition">이용약관</a>
+                    <a href="/pages/legal/privacy.html" class="text-slate-400 hover:text-white transition">개인정보처리방침</a>
+                    <a href="/pages/support/index.html" class="text-slate-400 hover:text-white transition">고객센터</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

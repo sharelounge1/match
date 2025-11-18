@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이용 가이드 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-slate-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <h1 class="text-lg font-semibold text-white">이용 가이드</h1>
+            <div class="w-6"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-lg mx-auto px-4 py-6">
+        <!-- Introduction -->
+        <section class="mb-8 text-center">
+            <h2 class="text-2xl font-bold gradient-text mb-2">MatchUp 시작하기</h2>
+            <p class="text-slate-400">아이디어와 기술을 연결하는 가장 쉬운 방법</p>
+        </section>
+
+        <!-- Step by Step Guide -->
+        <div class="space-y-6">
+            <!-- Step 1: Sign Up -->
+            <section class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        1
+                    </div>
+                    <h3 class="text-white font-semibold text-lg">회원가입 및 프로필 설정</h3>
+                </div>
+
+                <!-- Screenshot Placeholder -->
+                <div class="bg-slate-800 rounded-lg h-40 flex items-center justify-center mb-4">
+                    <div class="text-center">
+                        <svg class="w-10 h-10 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-slate-600 text-sm">회원가입 화면</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>- 이메일 또는 소셜 계정으로 간편 가입</p>
+                    <p>- 역할 선택 (아이디어 보유자 / 기술 보유자)</p>
+                    <p>- 보유 기술 및 관심 분야 설정</p>
+                    <p>- 포트폴리오 및 경력 정보 입력</p>
+                </div>
+            </section>
+
+            <!-- Step 2: Browse Projects -->
+            <section class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        2
+                    </div>
+                    <h3 class="text-white font-semibold text-lg">프로젝트 탐색</h3>
+                </div>
+
+                <!-- Screenshot Placeholder -->
+                <div class="bg-slate-800 rounded-lg h-40 flex items-center justify-center mb-4">
+                    <div class="text-center">
+                        <svg class="w-10 h-10 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-slate-600 text-sm">프로젝트 목록 화면</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>- 카테고리별 프로젝트 필터링</p>
+                    <p>- 필요 역할 및 지분율 확인</p>
+                    <p>- 관심 프로젝트 북마크 저장</p>
+                    <p>- 프로젝트 상세 정보 확인</p>
+                </div>
+            </section>
+
+            <!-- Step 3: Apply -->
+            <section class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        3
+                    </div>
+                    <h3 class="text-white font-semibold text-lg">프로젝트 지원</h3>
+                </div>
+
+                <!-- Screenshot Placeholder -->
+                <div class="bg-slate-800 rounded-lg h-40 flex items-center justify-center mb-4">
+                    <div class="text-center">
+                        <svg class="w-10 h-10 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-slate-600 text-sm">지원서 작성 화면</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>- 지원 역할 선택</p>
+                    <p>- 자기소개 및 지원 동기 작성</p>
+                    <p>- 관련 경험 및 포트폴리오 첨부</p>
+                    <p>- 희망 지분율 제안 (선택)</p>
+                </div>
+            </section>
+
+            <!-- Step 4: Meeting -->
+            <section class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        4
+                    </div>
+                    <h3 class="text-white font-semibold text-lg">화상 미팅</h3>
+                </div>
+
+                <!-- Screenshot Placeholder -->
+                <div class="bg-slate-800 rounded-lg h-40 flex items-center justify-center mb-4">
+                    <div class="text-center">
+                        <svg class="w-10 h-10 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-slate-600 text-sm">화상 미팅 화면</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>- 미팅 일정 조율 및 예약</p>
+                    <p>- 내장 화상 미팅 또는 외부 링크</p>
+                    <p>- 프로젝트 상세 논의</p>
+                    <p>- 역할 및 지분 협상</p>
+                </div>
+            </section>
+
+            <!-- Step 5: Contract -->
+            <section class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        5
+                    </div>
+                    <h3 class="text-white font-semibold text-lg">계약서 작성 및 서명</h3>
+                </div>
+
+                <!-- Screenshot Placeholder -->
+                <div class="bg-slate-800 rounded-lg h-40 flex items-center justify-center mb-4">
+                    <div class="text-center">
+                        <svg class="w-10 h-10 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-slate-600 text-sm">계약서 서명 화면</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>- 지분 배분 및 역할 명시</p>
+                    <p>- 계약 조건 확인</p>
+                    <p>- 전자 서명으로 계약 체결</p>
+                    <p>- 계약서 PDF 다운로드</p>
+                </div>
+            </section>
+
+            <!-- Step 6: Collaboration -->
+            <section class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        6
+                    </div>
+                    <h3 class="text-white font-semibold text-lg">협업 시작</h3>
+                </div>
+
+                <!-- Screenshot Placeholder -->
+                <div class="bg-slate-800 rounded-lg h-40 flex items-center justify-center mb-4">
+                    <div class="text-center">
+                        <svg class="w-10 h-10 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-slate-600 text-sm">프로젝트 대시보드</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>- 팀 채팅 및 파일 공유</p>
+                    <p>- 프로젝트 진행 상황 추적</p>
+                    <p>- 마일스톤 관리</p>
+                    <p>- 정기 미팅 및 리뷰</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tips Section -->
+        <section class="mt-8 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-xl p-6">
+            <h3 class="text-white font-semibold mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+                성공적인 매칭을 위한 팁
+            </h3>
+            <ul class="space-y-3 text-sm text-slate-400">
+                <li class="flex items-start gap-2">
+                    <span class="text-indigo-400 mt-1">-</span>
+                    프로필을 상세하게 작성하여 신뢰도를 높이세요
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-indigo-400 mt-1">-</span>
+                    포트폴리오와 이전 프로젝트 경험을 꼭 추가하세요
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-indigo-400 mt-1">-</span>
+                    지원서에 구체적인 기여 방안을 작성하세요
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-indigo-400 mt-1">-</span>
+                    화상 미팅에서 질문을 준비해가세요
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-indigo-400 mt-1">-</span>
+                    계약 전 지분 배분을 명확히 협의하세요
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-lg mx-auto px-4 py-6 border-t border-slate-800 mt-8">
+        <div class="flex justify-center gap-6 text-sm">
+            <a href="../legal/terms.html" class="text-slate-500 hover:text-slate-300 transition-colors">이용약관</a>
+            <a href="../legal/privacy.html" class="text-slate-500 hover:text-slate-300 transition-colors">개인정보처리방침</a>
+            <a href="../legal/refund.html" class="text-slate-500 hover:text-slate-300 transition-colors">환불정책</a>
+        </div>
+    </footer>
+</body>
+</html>

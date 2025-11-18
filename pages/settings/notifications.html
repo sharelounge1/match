@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림 설정 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #6366f1;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #6366f1;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-slate-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <h1 class="text-lg font-semibold text-white">알림 설정</h1>
+            <div class="w-6"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-lg mx-auto px-4 py-6">
+        <!-- Notification Methods -->
+        <section class="mb-8">
+            <h2 class="text-sm font-medium text-slate-500 uppercase tracking-wider mb-3">알림 방식</h2>
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl divide-y divide-slate-800">
+                <!-- Push Notifications -->
+                <div class="p-4 flex items-center justify-between">
+                    <div>
+                        <p class="text-white font-medium">푸시 알림</p>
+                        <p class="text-sm text-slate-400">앱 푸시 알림 받기</p>
+                    </div>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="push" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-600 appearance-none cursor-pointer transition-all duration-200"/>
+                        <label for="push" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <!-- Email Notifications -->
+                <div class="p-4 flex items-center justify-between">
+                    <div>
+                        <p class="text-white font-medium">이메일 알림</p>
+                        <p class="text-sm text-slate-400">이메일로 알림 받기</p>
+                    </div>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="email" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-600 appearance-none cursor-pointer transition-all duration-200"/>
+                        <label for="email" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <!-- SMS Notifications -->
+                <div class="p-4 flex items-center justify-between">
+                    <div>
+                        <p class="text-white font-medium">SMS 알림</p>
+                        <p class="text-sm text-slate-400">문자로 중요 알림 받기</p>
+                    </div>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="sms" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-600 appearance-none cursor-pointer transition-all duration-200"/>
+                        <label for="sms" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notification Categories -->
+        <section>
+            <h2 class="text-sm font-medium text-slate-500 uppercase tracking-wider mb-3">알림 유형</h2>
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl divide-y divide-slate-800">
+                <!-- Project Notifications -->
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-medium">프로젝트</p>
+                            <p class="text-xs text-slate-400">지원, 매칭, 업데이트</p>
+                        </div>
+                    </div>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="project" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-600 appearance-none cursor-pointer transition-all duration-200"/>
+                        <label for="project" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <!-- Meeting Notifications -->
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-medium">미팅</p>
+                            <p class="text-xs text-slate-400">예약, 리마인더, 변경</p>
+                        </div>
+                    </div>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="meeting" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-600 appearance-none cursor-pointer transition-all duration-200"/>
+                        <label for="meeting" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <!-- Contract Notifications -->
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-medium">계약</p>
+                            <p class="text-xs text-slate-400">서명 요청, 완료, 만료</p>
+                        </div>
+                    </div>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="contract" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-600 appearance-none cursor-pointer transition-all duration-200"/>
+                        <label for="contract" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <!-- Message Notifications -->
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white font-medium">메시지</p>
+                            <p class="text-xs text-slate-400">새 메시지, 멘션</p>
+                        </div>
+                    </div>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="message" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-600 appearance-none cursor-pointer transition-all duration-200"/>
+                        <label for="message" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Save Button -->
+        <div class="mt-8">
+            <button class="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium py-3 rounded-xl hover:opacity-90 transition-opacity">
+                설정 저장
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-lg mx-auto px-4 py-6 border-t border-slate-800 mt-8">
+        <div class="flex justify-center gap-6 text-sm">
+            <a href="../legal/terms.html" class="text-slate-500 hover:text-slate-300 transition-colors">이용약관</a>
+            <a href="../legal/privacy.html" class="text-slate-500 hover:text-slate-300 transition-colors">개인정보처리방침</a>
+            <a href="../legal/refund.html" class="text-slate-500 hover:text-slate-300 transition-colors">환불정책</a>
+        </div>
+    </footer>
+</body>
+</html>

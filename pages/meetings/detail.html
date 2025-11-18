@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미팅 상세 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-8">
+                    <a href="/pages/home/index.html" class="text-2xl font-bold gradient-text">MatchUp</a>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="/pages/explore/index.html" class="text-slate-400 hover:text-white transition-colors">탐색</a>
+                        <a href="/pages/projects/index.html" class="text-slate-400 hover:text-white transition-colors">프로젝트</a>
+                        <a href="/pages/meetings/index.html" class="text-white font-medium">미팅</a>
+                        <a href="/pages/messages/index.html" class="text-slate-400 hover:text-white transition-colors">메시지</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/pages/notifications/index.html" class="text-slate-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                    </a>
+                    <a href="/pages/profile/index.html" class="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-sm font-medium">
+                        J
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Back Button -->
+        <a href="/pages/meetings/index.html" class="inline-flex items-center space-x-2 text-slate-400 hover:text-white transition-colors mb-6">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span>미팅 목록으로</span>
+        </a>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Main Content -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Meeting Info Card -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <span class="px-2 py-0.5 bg-green-500/20 text-green-400 text-xs rounded-full">예정</span>
+                                <span class="px-2 py-0.5 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">화상 미팅</span>
+                            </div>
+                            <h1 class="text-2xl font-bold text-white">AI 운동 추천 앱 - 첫 미팅</h1>
+                        </div>
+                    </div>
+
+                    <!-- Meeting Details -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-slate-800/50 rounded-lg p-4">
+                            <div class="flex items-center space-x-2 text-slate-400 mb-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <span class="text-sm">날짜</span>
+                            </div>
+                            <p class="text-white font-medium">2024년 11월 18일 (월)</p>
+                        </div>
+                        <div class="bg-slate-800/50 rounded-lg p-4">
+                            <div class="flex items-center space-x-2 text-slate-400 mb-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="text-sm">시간</span>
+                            </div>
+                            <p class="text-white font-medium">14:00 - 14:30</p>
+                        </div>
+                        <div class="bg-slate-800/50 rounded-lg p-4">
+                            <div class="flex items-center space-x-2 text-slate-400 mb-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                                <span class="text-sm">미팅 유형</span>
+                            </div>
+                            <p class="text-white font-medium">화상 미팅</p>
+                        </div>
+                        <div class="bg-slate-800/50 rounded-lg p-4">
+                            <div class="flex items-center space-x-2 text-slate-400 mb-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <span class="text-sm">소요 시간</span>
+                            </div>
+                            <p class="text-white font-medium">30분</p>
+                        </div>
+                    </div>
+
+                    <!-- Project Link -->
+                    <div class="bg-slate-800/50 rounded-lg p-4">
+                        <div class="flex items-center space-x-2 text-slate-400 mb-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                            <span class="text-sm">연관 프로젝트</span>
+                        </div>
+                        <a href="/pages/projects/detail.html" class="flex items-center justify-between group">
+                            <span class="text-white font-medium group-hover:text-indigo-400 transition-colors">AI 운동 추천 앱</span>
+                            <svg class="w-4 h-4 text-slate-400 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Agenda / Notes -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">안건 / 노트</h2>
+                    <textarea
+                        class="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                        rows="6"
+                        placeholder="미팅 안건이나 논의할 내용을 작성하세요..."
+                    >1. 프로젝트 방향성 및 목표 설정
+2. 역할 분담 논의
+   - 프론트엔드 개발
+   - 백엔드 개발
+   - AI/ML 모델 개발
+3. 일정 및 마일스톤 설정
+4. 다음 미팅 일정 조율</textarea>
+                    <div class="flex justify-end mt-3">
+                        <button class="px-4 py-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors text-sm">
+                            저장
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="/pages/meetings/room.html" class="flex-1 px-6 py-3 gradient-bg text-white rounded-lg hover:opacity-90 transition-opacity font-medium text-center inline-flex items-center justify-center space-x-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>미팅룸 입장</span>
+                    </a>
+                    <button class="flex-1 px-6 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors font-medium inline-flex items-center justify-center space-x-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>일정 변경</span>
+                    </button>
+                    <button class="flex-1 px-6 py-3 bg-red-500/20 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/30 transition-colors font-medium inline-flex items-center justify-center space-x-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <span>취소</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar - Participants -->
+            <div class="space-y-6">
+                <!-- Participants -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">참여자</h2>
+                    <div class="space-y-4">
+                        <!-- Participant 1 -->
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
+                                K
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-white font-medium">김민수</p>
+                                <p class="text-slate-400 text-sm">프로젝트 오너</p>
+                            </div>
+                            <span class="px-2 py-0.5 bg-indigo-500/20 text-indigo-400 text-xs rounded-full">호스트</span>
+                        </div>
+
+                        <!-- Participant 2 -->
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-medium">
+                                J
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-white font-medium">정유진</p>
+                                <p class="text-slate-400 text-sm">백엔드 개발자</p>
+                            </div>
+                        </div>
+
+                        <!-- Current User -->
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white font-medium">
+                                나
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-white font-medium">나</p>
+                                <p class="text-slate-400 text-sm">프론트엔드 개발자</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-4 px-4 py-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors text-sm flex items-center justify-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        <span>참여자 추가</span>
+                    </button>
+                </div>
+
+                <!-- Meeting History -->
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">미팅 기록</h2>
+                    <div class="space-y-3">
+                        <div class="text-sm">
+                            <p class="text-slate-400">생성됨</p>
+                            <p class="text-white">2024년 11월 15일 10:30</p>
+                        </div>
+                        <div class="text-sm">
+                            <p class="text-slate-400">마지막 수정</p>
+                            <p class="text-white">2024년 11월 17일 15:20</p>
+                        </div>
+                        <div class="text-sm">
+                            <p class="text-slate-400">생성자</p>
+                            <p class="text-white">김민수</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add to Calendar -->
+                <button class="w-full px-4 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors font-medium flex items-center justify-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>캘린더에 추가</span>
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

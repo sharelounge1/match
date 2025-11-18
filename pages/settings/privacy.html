@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 설정 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-slate-400 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <h1 class="text-lg font-semibold text-white">개인정보 설정</h1>
+            <div class="w-6"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-lg mx-auto px-4 py-6">
+        <!-- Profile Visibility -->
+        <section class="mb-6">
+            <h2 class="text-sm font-medium text-slate-500 uppercase tracking-wider mb-3">프로필 공개 범위</h2>
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+                <p class="text-sm text-slate-400 mb-4">다른 사용자에게 프로필이 어떻게 보일지 설정합니다.</p>
+                <div class="space-y-3">
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">전체 공개</p>
+                            <p class="text-xs text-slate-400">모든 사용자가 프로필을 볼 수 있습니다</p>
+                        </div>
+                        <input type="radio" name="profile_visibility" value="public" checked class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">매칭된 사용자만</p>
+                            <p class="text-xs text-slate-400">매칭된 프로젝트 멤버만 볼 수 있습니다</p>
+                        </div>
+                        <input type="radio" name="profile_visibility" value="matched" class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">비공개</p>
+                            <p class="text-xs text-slate-400">아무도 프로필을 볼 수 없습니다</p>
+                        </div>
+                        <input type="radio" name="profile_visibility" value="private" class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info Visibility -->
+        <section class="mb-6">
+            <h2 class="text-sm font-medium text-slate-500 uppercase tracking-wider mb-3">연락처 공개</h2>
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+                <p class="text-sm text-slate-400 mb-4">이메일, 전화번호 등 연락처 정보의 공개 범위를 설정합니다.</p>
+                <div class="space-y-3">
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">전체 공개</p>
+                            <p class="text-xs text-slate-400">모든 사용자가 연락처를 볼 수 있습니다</p>
+                        </div>
+                        <input type="radio" name="contact_visibility" value="public" class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">매칭된 사용자만</p>
+                            <p class="text-xs text-slate-400">매칭된 프로젝트 멤버만 볼 수 있습니다</p>
+                        </div>
+                        <input type="radio" name="contact_visibility" value="matched" checked class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">비공개</p>
+                            <p class="text-xs text-slate-400">아무도 연락처를 볼 수 없습니다</p>
+                        </div>
+                        <input type="radio" name="contact_visibility" value="private" class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activity History -->
+        <section class="mb-6">
+            <h2 class="text-sm font-medium text-slate-500 uppercase tracking-wider mb-3">활동 기록</h2>
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+                <p class="text-sm text-slate-400 mb-4">프로젝트 참여 기록, 평점 등 활동 내역의 공개 범위를 설정합니다.</p>
+                <div class="space-y-3">
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">전체 공개</p>
+                            <p class="text-xs text-slate-400">모든 사용자가 활동 기록을 볼 수 있습니다</p>
+                        </div>
+                        <input type="radio" name="activity_visibility" value="public" checked class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">매칭된 사용자만</p>
+                            <p class="text-xs text-slate-400">매칭된 프로젝트 멤버만 볼 수 있습니다</p>
+                        </div>
+                        <input type="radio" name="activity_visibility" value="matched" class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                    <label class="flex items-center justify-between p-3 bg-slate-800 rounded-lg cursor-pointer hover:bg-slate-700 transition-colors">
+                        <div>
+                            <p class="text-white font-medium">비공개</p>
+                            <p class="text-xs text-slate-400">아무도 활동 기록을 볼 수 없습니다</p>
+                        </div>
+                        <input type="radio" name="activity_visibility" value="private" class="w-5 h-5 text-indigo-500 bg-slate-700 border-slate-600 focus:ring-indigo-500 focus:ring-offset-slate-800">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Save Button -->
+        <div class="mt-8">
+            <button class="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium py-3 rounded-xl hover:opacity-90 transition-opacity">
+                설정 저장
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-lg mx-auto px-4 py-6 border-t border-slate-800 mt-8">
+        <div class="flex justify-center gap-6 text-sm">
+            <a href="../legal/terms.html" class="text-slate-500 hover:text-slate-300 transition-colors">이용약관</a>
+            <a href="../legal/privacy.html" class="text-slate-500 hover:text-slate-300 transition-colors">개인정보처리방침</a>
+            <a href="../legal/refund.html" class="text-slate-500 hover:text-slate-300 transition-colors">환불정책</a>
+        </div>
+    </footer>
+</body>
+</html>

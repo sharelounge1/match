@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 관리 - MatchUp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/pages/home/index.html" class="text-2xl font-bold">
+                <span class="gradient-text">MatchUp</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/pages/explore/index.html" class="text-slate-400 hover:text-white transition">프로젝트 탐색</a>
+                <a href="/pages/my-projects/index.html" class="text-slate-400 hover:text-white transition">내 프로젝트</a>
+                <a href="/pages/messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/pages/notifications/index.html" class="text-slate-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                </a>
+                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <a href="index.html" class="text-slate-400 hover:text-white transition text-sm mb-4 inline-flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    내 프로필로 돌아가기
+                </a>
+                <div class="flex items-center justify-between">
+                    <h1 class="text-2xl md:text-3xl font-bold">포트폴리오 관리</h1>
+                    <a href="portfolio-create.html" class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition inline-flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        새 포트폴리오
+                    </a>
+                </div>
+            </div>
+
+            <!-- Drag & Drop Info -->
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-800 mb-6">
+                <div class="flex items-center gap-3 text-slate-400 text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>카드를 드래그하여 순서를 변경할 수 있습니다</span>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Portfolio Card 1 -->
+                <div class="bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden glow-card transition cursor-move">
+                    <div class="aspect-video bg-slate-800 relative">
+                        <div class="absolute top-3 left-3 px-2 py-1 bg-slate-900/80 rounded text-xs text-slate-300">1</div>
+                        <div class="absolute top-3 right-3 flex items-center gap-2">
+                            <a href="portfolio-edit.html" class="p-2 bg-slate-900/80 rounded hover:bg-slate-700 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                </svg>
+                            </a>
+                            <button class="p-2 bg-slate-900/80 rounded hover:bg-red-500/50 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">AI 챗봇 서비스</h3>
+                        <p class="text-slate-400 text-sm mb-3 line-clamp-2">24시간 고객 응대가 가능한 AI 기반 챗봇 서비스를 개발했습니다.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">Python</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">TensorFlow</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 2 -->
+                <div class="bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden glow-card transition cursor-move">
+                    <div class="aspect-video bg-slate-800 relative">
+                        <div class="absolute top-3 left-3 px-2 py-1 bg-slate-900/80 rounded text-xs text-slate-300">2</div>
+                        <div class="absolute top-3 right-3 flex items-center gap-2">
+                            <a href="portfolio-edit.html" class="p-2 bg-slate-900/80 rounded hover:bg-slate-700 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                </svg>
+                            </a>
+                            <button class="p-2 bg-slate-900/80 rounded hover:bg-red-500/50 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">이커머스 플랫폼</h3>
+                        <p class="text-slate-400 text-sm mb-3 line-clamp-2">풀스택으로 개발한 커머스 플랫폼입니다. 결제, 재고 관리 기능 포함.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">Next.js</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">TypeScript</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 3 -->
+                <div class="bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden glow-card transition cursor-move">
+                    <div class="aspect-video bg-slate-800 relative">
+                        <div class="absolute top-3 left-3 px-2 py-1 bg-slate-900/80 rounded text-xs text-slate-300">3</div>
+                        <div class="absolute top-3 right-3 flex items-center gap-2">
+                            <a href="portfolio-edit.html" class="p-2 bg-slate-900/80 rounded hover:bg-slate-700 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                </svg>
+                            </a>
+                            <button class="p-2 bg-slate-900/80 rounded hover:bg-red-500/50 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">데이터 대시보드</h3>
+                        <p class="text-slate-400 text-sm mb-3 line-clamp-2">실시간 데이터 시각화 대시보드. 매출, 사용자 분석 기능.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">D3.js</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">PostgreSQL</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 4 -->
+                <div class="bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden glow-card transition cursor-move">
+                    <div class="aspect-video bg-slate-800 relative">
+                        <div class="absolute top-3 left-3 px-2 py-1 bg-slate-900/80 rounded text-xs text-slate-300">4</div>
+                        <div class="absolute top-3 right-3 flex items-center gap-2">
+                            <a href="portfolio-edit.html" class="p-2 bg-slate-900/80 rounded hover:bg-slate-700 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                </svg>
+                            </a>
+                            <button class="p-2 bg-slate-900/80 rounded hover:bg-red-500/50 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">모바일 피트니스 앱</h3>
+                        <p class="text-slate-400 text-sm mb-3 line-clamp-2">React Native로 개발한 크로스 플랫폼 피트니스 앱.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">React Native</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (hidden when there are items) -->
+            <!--
+            <div class="bg-slate-900/50 rounded-2xl border border-slate-800 p-12 text-center">
+                <svg class="w-16 h-16 text-slate-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                <h3 class="text-lg font-semibold mb-2">포트폴리오가 없습니다</h3>
+                <p class="text-slate-500 mb-6">첫 번째 포트폴리오를 추가해보세요</p>
+                <a href="portfolio-create.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    새 포트폴리오 추가
+                </a>
+            </div>
+            -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-xl font-bold gradient-text mb-4 md:mb-0">MatchUp</div>
+                <div class="flex items-center space-x-6 text-sm text-slate-500">
+                    <a href="/pages/legal/terms.html" class="hover:text-white transition">이용약관</a>
+                    <a href="/pages/legal/privacy.html" class="hover:text-white transition">개인정보처리방침</a>
+                    <a href="/pages/support/contact.html" class="hover:text-white transition">문의하기</a>
+                </div>
+            </div>
+            <div class="text-center text-sm text-slate-600 mt-8">
+                &copy; 2025 MatchUp. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
