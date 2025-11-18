@@ -79,14 +79,14 @@
             <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
                 <h2 class="text-xl font-semibold mb-4">지원 역할 선택 <span class="text-red-400">*</span></h2>
                 <p class="text-sm text-slate-400 mb-6">중복 선택이 가능합니다</p>
-                <div class="space-y-3">
-                    <label class="cursor-pointer block">
-                        <input type="checkbox" name="roles" value="developer" class="hidden peer">
-                        <div class="p-4 rounded-xl border border-slate-700 peer-checked:border-blue-500 peer-checked:bg-blue-500/10 hover:border-slate-600 transition">
+                <div class="space-y-3" id="role-selection">
+                    <label class="cursor-pointer block" onclick="toggleRoleCard(this, 'blue')">
+                        <input type="checkbox" name="roles" value="developer" class="hidden">
+                        <div class="role-card p-4 rounded-xl border border-slate-700 hover:border-slate-600 transition">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-5 h-5 rounded border-2 border-slate-600 peer-checked:border-blue-500 peer-checked:bg-blue-500 flex items-center justify-center">
-                                        <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="currentColor" viewBox="0 0 20 20">
+                                    <div class="check-box w-5 h-5 rounded border-2 border-slate-600 flex items-center justify-center">
+                                        <svg class="check-icon w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
@@ -97,13 +97,13 @@
                             <p class="text-sm text-slate-400 ml-8">React Native, Node.js, Python 경험자</p>
                         </div>
                     </label>
-                    <label class="cursor-pointer block">
-                        <input type="checkbox" name="roles" value="designer" class="hidden peer">
-                        <div class="p-4 rounded-xl border border-slate-700 peer-checked:border-pink-500 peer-checked:bg-pink-500/10 hover:border-slate-600 transition">
+                    <label class="cursor-pointer block" onclick="toggleRoleCard(this, 'pink')">
+                        <input type="checkbox" name="roles" value="designer" class="hidden">
+                        <div class="role-card p-4 rounded-xl border border-slate-700 hover:border-slate-600 transition">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-5 h-5 rounded border-2 border-slate-600 peer-checked:border-pink-500 peer-checked:bg-pink-500 flex items-center justify-center">
-                                        <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="currentColor" viewBox="0 0 20 20">
+                                    <div class="check-box w-5 h-5 rounded border-2 border-slate-600 flex items-center justify-center">
+                                        <svg class="check-icon w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
@@ -114,13 +114,13 @@
                             <p class="text-sm text-slate-400 ml-8">Figma, 모바일 앱 디자인 경험</p>
                         </div>
                     </label>
-                    <label class="cursor-pointer block">
-                        <input type="checkbox" name="roles" value="marketer" class="hidden peer">
-                        <div class="p-4 rounded-xl border border-slate-700 peer-checked:border-amber-500 peer-checked:bg-amber-500/10 hover:border-slate-600 transition">
+                    <label class="cursor-pointer block" onclick="toggleRoleCard(this, 'amber')">
+                        <input type="checkbox" name="roles" value="marketer" class="hidden">
+                        <div class="role-card p-4 rounded-xl border border-slate-700 hover:border-slate-600 transition">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-5 h-5 rounded border-2 border-slate-600 peer-checked:border-amber-500 peer-checked:bg-amber-500 flex items-center justify-center">
-                                        <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="currentColor" viewBox="0 0 20 20">
+                                    <div class="check-box w-5 h-5 rounded border-2 border-slate-600 flex items-center justify-center">
+                                        <svg class="check-icon w-3 h-3 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
@@ -286,5 +286,44 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for Role Card Toggle -->
+    <script>
+        function toggleRoleCard(label, color) {
+            const checkbox = label.querySelector('input[type="checkbox"]');
+            const card = label.querySelector('.role-card');
+            const checkBox = label.querySelector('.check-box');
+            const checkIcon = label.querySelector('.check-icon');
+
+            // Use setTimeout to ensure the checkbox state has been updated
+            setTimeout(() => {
+                const isChecked = checkbox.checked;
+
+                const colorMap = {
+                    'blue': { border: 'border-blue-500', bg: 'bg-blue-500/10', boxBorder: 'border-blue-500', boxBg: 'bg-blue-500' },
+                    'pink': { border: 'border-pink-500', bg: 'bg-pink-500/10', boxBorder: 'border-pink-500', boxBg: 'bg-pink-500' },
+                    'amber': { border: 'border-amber-500', bg: 'bg-amber-500/10', boxBorder: 'border-amber-500', boxBg: 'bg-amber-500' }
+                };
+
+                const colors = colorMap[color];
+
+                if (isChecked) {
+                    // Add checked styles
+                    card.classList.remove('border-slate-700');
+                    card.classList.add(colors.border, colors.bg);
+                    checkBox.classList.remove('border-slate-600');
+                    checkBox.classList.add(colors.boxBorder, colors.boxBg);
+                    checkIcon.classList.remove('hidden');
+                } else {
+                    // Remove checked styles
+                    card.classList.add('border-slate-700');
+                    card.classList.remove(colors.border, colors.bg);
+                    checkBox.classList.add('border-slate-600');
+                    checkBox.classList.remove(colors.boxBorder, colors.boxBg);
+                    checkIcon.classList.add('hidden');
+                }
+            }, 0);
+        }
+    </script>
 </body>
 </html>
