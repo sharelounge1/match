@@ -20,30 +20,52 @@
     </style>
 </head>
 <body class="bg-slate-950 text-white">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="text-2xl font-bold">
-                <a href="../../index.html" class="gradient-text">MatchUp</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="../explore/index.html" class="text-slate-400 hover:text-white transition">프로젝트</a>
-                <a href="../my-projects/posted.html" class="text-slate-400 hover:text-white transition">내 프로젝트</a>
-                <a href="../messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="../notifications/index.html" class="text-slate-400 hover:text-white transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                    </svg>
-                </a>
-                <a href="../profile/index.html" class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></a>
+    <!-- Header -->
+    <header class="border-b border-slate-800 sticky top-0 z-50 bg-slate-950/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="/pages/index.html" class="text-2xl font-bold gradient-text">MatchUp</a>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="/pages/explore/index.html" class="text-slate-400 hover:text-white transition">탐색</a>
+                    <a href="/pages/my-projects/index.html" class="text-slate-400 hover:text-white transition">나의 프로젝트</a>
+                    <a href="/pages/guide/index.html" class="text-slate-400 hover:text-white transition">이용방법</a>
+                    <a href="/pages/meetings/index.html" class="text-slate-400 hover:text-white transition">미팅</a>
+                    <a href="/pages/messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="flex items-center gap-4">
+                    <!-- Mileage -->
+                    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
+                        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path>
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-sm font-medium">50,000</span>
+                    </div>
+
+                    <!-- Notifications -->
+                    <a href="/pages/notifications/index.html" class="relative text-slate-400 hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs flex items-center justify-center">3</span>
+                    </a>
+
+                    <!-- Profile -->
+                    <a href="/pages/profile/index.html" class="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                        <span class="text-sm font-medium">U</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Content -->
-    <main class="pt-24 pb-16 px-6">
+    <main class="py-8 px-6">
         <div class="max-w-3xl mx-auto">
             <!-- Header -->
             <div class="text-center mb-8">
@@ -56,24 +78,24 @@
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-2">
                         <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-sm font-medium">1</div>
-                        <span class="text-sm hidden sm:inline">유형 선택</span>
+                        <span class="text-sm hidden sm:inline">모집 유형</span>
                     </div>
                     <div class="flex-1 h-1 mx-2 bg-slate-800 rounded">
-                        <div class="h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded w-1/6"></div>
+                        <div class="h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded w-1/7"></div>
                     </div>
                     <div class="flex items-center gap-2">
                         <div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center text-sm text-slate-400">2</div>
-                        <span class="text-sm text-slate-400 hidden sm:inline">기본 정보</span>
+                        <span class="text-sm text-slate-400 hidden sm:inline">프로젝트 유형</span>
                     </div>
                     <div class="flex-1 h-1 mx-2 bg-slate-800 rounded"></div>
                     <div class="flex items-center gap-2">
                         <div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center text-sm text-slate-400">3</div>
-                        <span class="text-sm text-slate-400 hidden sm:inline">상세 설명</span>
+                        <span class="text-sm text-slate-400 hidden sm:inline">기본 정보</span>
                     </div>
                     <div class="flex-1 h-1 mx-2 bg-slate-800 rounded"></div>
                     <div class="flex items-center gap-2">
                         <div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center text-sm text-slate-400">4</div>
-                        <span class="text-sm text-slate-400 hidden sm:inline">역할 모집</span>
+                        <span class="text-sm text-slate-400 hidden sm:inline">상세 설명</span>
                     </div>
                     <div class="flex-1 h-1 mx-2 bg-slate-800 rounded"></div>
                     <div class="flex items-center gap-2">
@@ -85,6 +107,48 @@
                         <div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center text-sm text-slate-400">6</div>
                         <span class="text-sm text-slate-400 hidden sm:inline">결제</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- Step 0: Recruitment Type -->
+            <div id="step-0" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
+                <h2 class="text-xl font-semibold mb-6">모집 유형 선택</h2>
+                <p class="text-slate-400 text-sm mb-4">어떤 역할의 팀원을 찾고 계신가요?</p>
+                <div class="grid gap-4">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="recruitment_type" value="developer" class="hidden peer">
+                        <div class="p-4 rounded-xl border border-slate-700 peer-checked:border-blue-500 peer-checked:bg-blue-500/10 hover:border-slate-600 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-medium mb-1">개발자 모집</div>
+                                    <p class="text-sm text-slate-400">아이디어는 있지만 개발해줄 사람이 필요해요</p>
+                                    <p class="text-xs text-slate-500 mt-1">운영자/기획자가 개발자를 찾을 때</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="recruitment_type" value="operator" class="hidden peer">
+                        <div class="p-4 rounded-xl border border-slate-700 peer-checked:border-purple-500 peer-checked:bg-purple-500/10 hover:border-slate-600 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-medium mb-1">운영자 모집</div>
+                                    <p class="text-sm text-slate-400">기술은 있지만 사업을 이끌어줄 사람이 필요해요</p>
+                                    <p class="text-xs text-slate-500 mt-1">개발자가 운영자/기획자를 찾을 때</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
                 </div>
             </div>
 
@@ -193,67 +257,8 @@
                 </div>
             </div>
 
-            <!-- Step 4: Role Recruitment -->
+            <!-- Step 4: Conditions -->
             <div id="step-4" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
-                <h2 class="text-xl font-semibold mb-6">역할 모집</h2>
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-3">모집할 역할 <span class="text-red-400">*</span></label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <label class="cursor-pointer">
-                                <input type="checkbox" name="roles" value="developer" class="hidden peer">
-                                <div class="p-3 rounded-lg border border-slate-700 peer-checked:border-blue-500 peer-checked:bg-blue-500/10 hover:border-slate-600 transition text-center">
-                                    <span class="text-2xl mb-1 block">💻</span>
-                                    <span class="text-sm">개발자</span>
-                                </div>
-                            </label>
-                            <label class="cursor-pointer">
-                                <input type="checkbox" name="roles" value="designer" class="hidden peer">
-                                <div class="p-3 rounded-lg border border-slate-700 peer-checked:border-pink-500 peer-checked:bg-pink-500/10 hover:border-slate-600 transition text-center">
-                                    <span class="text-2xl mb-1 block">🎨</span>
-                                    <span class="text-sm">디자이너</span>
-                                </div>
-                            </label>
-                            <label class="cursor-pointer">
-                                <input type="checkbox" name="roles" value="marketer" class="hidden peer">
-                                <div class="p-3 rounded-lg border border-slate-700 peer-checked:border-amber-500 peer-checked:bg-amber-500/10 hover:border-slate-600 transition text-center">
-                                    <span class="text-2xl mb-1 block">📈</span>
-                                    <span class="text-sm">마케터</span>
-                                </div>
-                            </label>
-                            <label class="cursor-pointer">
-                                <input type="checkbox" name="roles" value="operator" class="hidden peer">
-                                <div class="p-3 rounded-lg border border-slate-700 peer-checked:border-purple-500 peer-checked:bg-purple-500/10 hover:border-slate-600 transition text-center">
-                                    <span class="text-2xl mb-1 block">📊</span>
-                                    <span class="text-sm">운영자</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Role Details (shown when a role is selected) -->
-                    <div class="p-4 bg-slate-800/50 rounded-xl">
-                        <h3 class="font-medium mb-4">개발자 상세 요건</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm text-slate-400 mb-2">세부 역할</label>
-                                <input type="text" placeholder="예: 풀스택 개발자, 백엔드 개발자" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm text-slate-400 mb-2">필요 스킬</label>
-                                <input type="text" placeholder="예: React, Node.js, Python" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm text-slate-400 mb-2">역할 설명</label>
-                                <textarea rows="2" placeholder="이 역할에서 수행할 업무를 설명해주세요" class="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition resize-none"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 5: Conditions -->
-            <div id="step-5" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
                 <h2 class="text-xl font-semibold mb-6">지분/수익 조건 설정</h2>
                 <div class="space-y-6">
                     <div>
@@ -286,21 +291,14 @@
                             <div class="flex items-center gap-4 p-3 bg-slate-800/50 rounded-lg">
                                 <span class="flex-1 text-slate-300">프로젝트 리더 (나)</span>
                                 <div class="flex items-center gap-2">
-                                    <input type="number" value="40" class="w-16 bg-slate-700 border border-slate-600 rounded px-2 py-1 text-white text-center focus:outline-none focus:border-indigo-500">
+                                    <input type="number" value="50" class="w-16 bg-slate-700 border border-slate-600 rounded px-2 py-1 text-white text-center focus:outline-none focus:border-indigo-500">
                                     <span class="text-slate-400">%</span>
                                 </div>
                             </div>
                             <div class="flex items-center gap-4 p-3 bg-slate-800/50 rounded-lg">
-                                <span class="flex-1 text-slate-300">개발자</span>
+                                <span class="flex-1 text-slate-300">모집 역할</span>
                                 <div class="flex items-center gap-2">
-                                    <input type="number" value="40" class="w-16 bg-slate-700 border border-slate-600 rounded px-2 py-1 text-white text-center focus:outline-none focus:border-indigo-500">
-                                    <span class="text-slate-400">%</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 p-3 bg-slate-800/50 rounded-lg">
-                                <span class="flex-1 text-slate-300">디자이너</span>
-                                <div class="flex items-center gap-2">
-                                    <input type="number" value="20" class="w-16 bg-slate-700 border border-slate-600 rounded px-2 py-1 text-white text-center focus:outline-none focus:border-indigo-500">
+                                    <input type="number" value="50" class="w-16 bg-slate-700 border border-slate-600 rounded px-2 py-1 text-white text-center focus:outline-none focus:border-indigo-500">
                                     <span class="text-slate-400">%</span>
                                 </div>
                             </div>
@@ -329,8 +327,8 @@
                 </div>
             </div>
 
-            <!-- Step 6: Payment & Publish -->
-            <div id="step-6" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
+            <!-- Step 5: Payment & Publish -->
+            <div id="step-5" class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 mb-6">
                 <h2 class="text-xl font-semibold mb-6">결제 및 게시</h2>
                 <div class="space-y-6">
                     <!-- Plan Selection -->
@@ -357,7 +355,7 @@
                                             <div class="font-medium">스탠다드 플랜</div>
                                             <p class="text-sm text-slate-400">상위 노출, 60일간 게시, 우선 지원자 알림</p>
                                         </div>
-                                        <div class="text-lg font-semibold">₩9,900</div>
+                                        <div class="text-lg font-semibold">9,900P</div>
                                     </div>
                                 </div>
                             </label>
@@ -369,7 +367,7 @@
                                             <div class="font-medium">프리미엄 플랜</div>
                                             <p class="text-sm text-slate-400">최상위 노출, 90일간 게시, 매칭 추천, 전담 지원</p>
                                         </div>
-                                        <div class="text-lg font-semibold">₩29,900</div>
+                                        <div class="text-lg font-semibold">29,900P</div>
                                     </div>
                                 </div>
                             </label>

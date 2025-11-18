@@ -39,10 +39,36 @@
                 <a href="meetings/index.html" class="text-slate-400 hover:text-white transition">미팅</a>
                 <a href="messages/index.html" class="text-slate-400 hover:text-white transition">메시지</a>
             </div>
-            <div class="flex items-center space-x-4">
+            <!-- Not Logged In State -->
+            <div id="auth-buttons" class="flex items-center space-x-4">
                 <a href="auth/login.html" class="text-slate-400 hover:text-white transition">로그인</a>
                 <a href="auth/signup.html" class="gradient-btn text-white px-4 py-2 rounded-lg hover:opacity-90 transition">
                     시작하기
+                </a>
+            </div>
+
+            <!-- Logged In State -->
+            <div id="user-menu" class="hidden flex items-center gap-4">
+                <!-- Mileage -->
+                <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path>
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span id="mileage-display" class="text-sm font-medium">0</span>
+                </div>
+
+                <!-- Notifications -->
+                <a href="notifications/index.html" class="relative text-slate-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs flex items-center justify-center">3</span>
+                </a>
+
+                <!-- Profile -->
+                <a href="profile/index.html" class="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                    <span id="user-initial" class="text-sm font-medium">U</span>
                 </a>
             </div>
         </div>
@@ -335,5 +361,56 @@
             </div>
         </div>
     </footer>
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Supabase 클라이언트 초기화
+        const SUPABASE_URL = 'https://jgfmobrojsvmgkhoidvx.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnZm1vYnJvanN2bWdraG9pZHZ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0NTQ4NzcsImV4cCI6MjA3OTAzMDg3N30.yrwocNV9xmUAn6sX52WRp7iIZ6gTqqVNNzukZLgPQXg';
+
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // 인증 상태 확인 및 UI 업데이트
+        async function checkAuthState() {
+            try {
+                const { data: { user } } = await supabase.auth.getUser();
+
+                const authButtons = document.getElementById('auth-buttons');
+                const userMenu = document.getElementById('user-menu');
+
+                if (user) {
+                    // 로그인 상태 - 사용자 메뉴 표시
+                    authButtons.classList.add('hidden');
+                    userMenu.classList.remove('hidden');
+
+                    // 프로필 정보 가져오기
+                    const { data: profile } = await supabase
+                        .from('profiles')
+                        .select('name, mileage')
+                        .eq('id', user.id)
+                        .single();
+
+                    if (profile) {
+                        // 이니셜 설정
+                        const initial = profile.name ? profile.name.charAt(0) : 'U';
+                        document.getElementById('user-initial').textContent = initial;
+
+                        // 마일리지 표시
+                        document.getElementById('mileage-display').textContent = (profile.mileage || 0).toLocaleString();
+                    }
+                } else {
+                    // 로그아웃 상태 - 로그인/시작하기 버튼 표시
+                    authButtons.classList.remove('hidden');
+                    userMenu.classList.add('hidden');
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+            }
+        }
+
+        // 페이지 로드 시 인증 상태 확인
+        document.addEventListener('DOMContentLoaded', checkAuthState);
+    </script>
 </body>
 </html>
