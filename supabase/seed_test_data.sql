@@ -285,7 +285,7 @@ ON CONFLICT DO NOTHING;
 
 -- 6. 샘플 알림
 
-INSERT INTO notifications (id, user_id, type, title, message, link, is_read)
+INSERT INTO notifications (id, user_id, type, title, content, action_url, is_read)
 VALUES
 (
     'd0000000-0000-0000-0000-000000000001',
@@ -313,7 +313,8 @@ VALUES
     '"AI 고객 응대 챗봇" 프로젝트 지원이 수락되었습니다.',
     '/my-projects/applied',
     true
-);
+)
+ON CONFLICT DO NOTHING;
 
 -- 완료 메시지
 SELECT '테스트 데이터 생성 완료!' as result;
