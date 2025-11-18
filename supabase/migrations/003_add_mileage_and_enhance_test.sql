@@ -41,59 +41,7 @@ ALTER TABLE meetings
 ADD COLUMN IF NOT EXISTS meeting_link TEXT,
 ADD COLUMN IF NOT EXISTS notes TEXT;
 
--- 5. 테스트 계정에 마일리지 부여
-UPDATE profiles
-SET mileage = 50000
-WHERE id = 'a0000000-0000-0000-0000-000000000002'; -- 김개발
-
-UPDATE profiles
-SET mileage = 100000
-WHERE id = 'a0000000-0000-0000-0000-000000000003'; -- 이기획
-
-UPDATE profiles
-SET mileage = 30000
-WHERE id = 'a0000000-0000-0000-0000-000000000004'; -- 박디자인
-
--- 6. 마일리지 충전 내역 추가
-INSERT INTO mileage_transactions (user_id, amount, type, description, balance_after) VALUES
-('a0000000-0000-0000-0000-000000000002', 50000, 'charge', '스탠다드 패키지 충전', 50000),
-('a0000000-0000-0000-0000-000000000003', 100000, 'charge', '프리미엄 패키지 충전', 100000),
-('a0000000-0000-0000-0000-000000000004', 30000, 'charge', '스타터 패키지 충전', 30000);
-
--- 7. 프로젝트에 팀 구성원 추가 (매칭된 프로젝트)
-INSERT INTO project_members (project_id, user_id, roles, equity_percentage, status) VALUES
--- AI 고객 응대 챗봇 - 김개발이 오너, 이기획이 합류
-('b0000000-0000-0000-0000-000000000003', 'a0000000-0000-0000-0000-000000000002', ARRAY['dev'], 50.00, 'active'),
-('b0000000-0000-0000-0000-000000000003', 'a0000000-0000-0000-0000-000000000003', ARRAY['biz', 'marketing'], 50.00, 'active')
-ON CONFLICT DO NOTHING;
-
--- 8. 샘플 미팅 추가
-INSERT INTO meetings (id, project_id, host_id, guest_id, title, scheduled_at, duration_minutes, status, meeting_link) VALUES
-(
-    'e0000000-0000-0000-0000-000000000001',
-    'b0000000-0000-0000-0000-000000000001',
-    'a0000000-0000-0000-0000-000000000003',
-    'a0000000-0000-0000-0000-000000000002',
-    'AI 운동 추천 앱 - 개발자 미팅',
-    NOW() + INTERVAL '2 days',
-    30,
-    'scheduled',
-    'https://meet.google.com/abc-defg-hij'
-),
-(
-    'e0000000-0000-0000-0000-000000000002',
-    'b0000000-0000-0000-0000-000000000001',
-    'a0000000-0000-0000-0000-000000000003',
-    'a0000000-0000-0000-0000-000000000004',
-    'AI 운동 추천 앱 - 디자이너 미팅',
-    NOW() + INTERVAL '3 days',
-    30,
-    'scheduled',
-    'https://meet.google.com/klm-nopq-rst'
-)
-ON CONFLICT DO NOTHING;
-
--- 9. RLS 정책 추가
+-- 5. RLS 정책 추가
 
 -- mileage_transactions
 ALTER TABLE mileage_transactions ENABLE ROW LEVEL SECURITY;
