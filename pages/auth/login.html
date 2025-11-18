@@ -124,11 +124,15 @@
 
                     <button
                         type="submit"
+                        id="login-btn"
                         class="w-full py-3 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:from-indigo-600 hover:to-purple-600 transition-all"
                     >
                         로그인
                     </button>
                 </form>
+
+                <!-- Error Message -->
+                <div id="error-message" class="hidden mt-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-sm"></div>
             </div>
 
             <!-- Sign Up Link -->
@@ -159,5 +163,90 @@
             </div>
         </div>
     </footer>
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Supabase 클라이언트 초기화
+        const SUPABASE_URL = 'https://oxfyqtglwlikksdlclji.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94ZnlxdGdsd2xpa2tzZGxjbGppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE4MTg4NTksImV4cCI6MjA0NzM5NDg1OX0.h-dG7eLDoXlnlXcVj7Z3YDsnUXNhUPMBOb4cPJWgkhs';
+
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // 폼 요소들
+        const loginForm = document.querySelector('form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const loginBtn = document.getElementById('login-btn');
+        const errorMessage = document.getElementById('error-message');
+
+        // 에러 메시지 표시
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+        }
+
+        // 에러 메시지 숨기기
+        function hideError() {
+            errorMessage.classList.add('hidden');
+        }
+
+        // 로그인 처리
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideError();
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                showError('이메일과 비밀번호를 입력해주세요.');
+                return;
+            }
+
+            // 버튼 로딩 상태
+            loginBtn.disabled = true;
+            loginBtn.textContent = '로그인 중...';
+
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    throw error;
+                }
+
+                // 로그인 성공 - 프로필 페이지로 이동
+                window.location.href = '/pages/profile/index.html';
+
+            } catch (error) {
+                console.error('Login error:', error);
+
+                // 에러 메시지 한글화
+                let errorMsg = '로그인에 실패했습니다.';
+                if (error.message.includes('Invalid login credentials')) {
+                    errorMsg = '이메일 또는 비밀번호가 올바르지 않습니다.';
+                } else if (error.message.includes('Email not confirmed')) {
+                    errorMsg = '이메일 인증이 필요합니다.';
+                } else if (error.message.includes('Too many requests')) {
+                    errorMsg = '너무 많은 시도가 있었습니다. 잠시 후 다시 시도해주세요.';
+                }
+
+                showError(errorMsg);
+            } finally {
+                loginBtn.disabled = false;
+                loginBtn.textContent = '로그인';
+            }
+        });
+
+        // 이미 로그인된 경우 리다이렉트
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (session) {
+                window.location.href = '/pages/profile/index.html';
+            }
+        });
+    </script>
 </body>
 </html>
