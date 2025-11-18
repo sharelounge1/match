@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신고 상세 - MatchUp Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 border-r border-slate-800 p-6">
+        <div class="text-xl font-bold gradient-text mb-8">MatchUp Admin</div>
+        <nav class="space-y-2">
+            <a href="/pages/admin/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                대시보드
+            </a>
+            <a href="/pages/admin/users/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                사용자 관리
+            </a>
+            <a href="/pages/admin/projects/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                프로젝트 관리
+            </a>
+            <a href="/pages/admin/reports/index.html" class="flex items-center gap-3 px-4 py-3 text-white bg-slate-800 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+                신고 관리
+            </a>
+            <a href="/pages/admin/payments/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                </svg>
+                결제 관리
+            </a>
+            <a href="/pages/admin/content/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                콘텐츠 관리
+            </a>
+            <a href="/pages/admin/settings/index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                설정
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <div class="flex items-center gap-2 text-sm text-slate-400 mb-2">
+                    <a href="index.html" class="hover:text-white transition">신고 관리</a>
+                    <span>/</span>
+                    <span class="text-white">RPT-001892</span>
+                </div>
+                <h1 class="text-2xl font-bold">신고 상세</h1>
+            </div>
+            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-sm rounded-full">대기중</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Main Content -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Report Info -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">신고 정보</h2>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="text-sm text-slate-400 mb-1">신고 유형</div>
+                                <span class="px-2 py-1 bg-red-500/20 text-red-400 text-sm rounded">사용자 신고</span>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-400 mb-1">접수일</div>
+                                <span class="text-white">2025.01.18 10:45</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-400 mb-2">신고 사유</div>
+                            <p class="text-slate-300 leading-relaxed">
+                                욕설 및 비방 메시지 발송
+                            </p>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-400 mb-2">상세 내용</div>
+                            <p class="text-slate-300 leading-relaxed">
+                                프로젝트 협업 중 의견 차이가 있었는데, 해당 사용자가 개인적인 욕설과 비방 메시지를 여러 차례 보냈습니다.
+                                "멍청한 놈", "네가 뭘 알아" 등의 인신공격성 발언이 포함되어 있었고, 협업 환경을 해치는 행동이라고 생각됩니다.
+                                첨부된 스크린샷에서 해당 메시지를 확인하실 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reporter Profile -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">신고자 정보</h2>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                        <div>
+                            <div class="font-medium">김민수</div>
+                            <div class="text-sm text-slate-400">minsu.kim@email.com</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div class="text-slate-400 mb-1">가입일</div>
+                            <span>2024.08.15</span>
+                        </div>
+                        <div>
+                            <div class="text-slate-400 mb-1">이전 신고 횟수</div>
+                            <span>2건</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reported Content/User -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">신고 대상</h2>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-r from-orange-500 to-red-500 rounded-full"></div>
+                        <div>
+                            <div class="font-medium">박성민</div>
+                            <div class="text-sm text-slate-400">sungmin.park@email.com</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                        <div>
+                            <div class="text-slate-400 mb-1">가입일</div>
+                            <span>2024.09.22</span>
+                        </div>
+                        <div>
+                            <div class="text-slate-400 mb-1">신고당한 횟수</div>
+                            <span class="text-yellow-400">3건</span>
+                        </div>
+                        <div>
+                            <div class="text-slate-400 mb-1">경고 횟수</div>
+                            <span class="text-orange-400">1회</span>
+                        </div>
+                        <div>
+                            <div class="text-slate-400 mb-1">정지 이력</div>
+                            <span class="text-green-400">없음</span>
+                        </div>
+                    </div>
+                    <a href="/pages/admin/users/detail.html" class="block w-full py-2 text-center border border-slate-700 rounded-lg text-slate-300 hover:bg-slate-800 transition text-sm">
+                        사용자 상세보기
+                    </a>
+                </div>
+
+                <!-- Evidence/Screenshots -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">증거 자료</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="aspect-video bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700 cursor-pointer hover:border-indigo-500 transition">
+                            <div class="text-center">
+                                <svg class="w-8 h-8 text-slate-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <span class="text-sm text-slate-400">screenshot_01.png</span>
+                            </div>
+                        </div>
+                        <div class="aspect-video bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700 cursor-pointer hover:border-indigo-500 transition">
+                            <div class="text-center">
+                                <svg class="w-8 h-8 text-slate-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <span class="text-sm text-slate-400">screenshot_02.png</span>
+                            </div>
+                        </div>
+                        <div class="aspect-video bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700 cursor-pointer hover:border-indigo-500 transition">
+                            <div class="text-center">
+                                <svg class="w-8 h-8 text-slate-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <span class="text-sm text-slate-400">chat_history.pdf</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Notes -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">관리자 메모</h2>
+                    <textarea class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 resize-none" rows="4" placeholder="처리 내용 및 메모를 입력하세요..."></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">처리 액션</h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="py-3 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-lg font-medium hover:bg-yellow-500/30 transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            경고 발송
+                        </button>
+                        <button class="py-3 bg-red-500/20 text-red-400 border border-red-500/30 rounded-lg font-medium hover:bg-red-500/30 transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                            </svg>
+                            사용자 정지
+                        </button>
+                        <button class="py-3 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded-lg font-medium hover:bg-orange-500/30 transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                            콘텐츠 삭제
+                        </button>
+                        <button class="py-3 bg-slate-500/20 text-slate-400 border border-slate-500/30 rounded-lg font-medium hover:bg-slate-500/30 transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            기각
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <button class="w-full py-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg font-medium hover:opacity-90 transition">
+                            처리 완료
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <!-- Quick Info -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">빠른 정보</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">신고 ID</span>
+                            <span>RPT-001892</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">유형</span>
+                            <span>사용자 신고</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">접수일</span>
+                            <span>2025.01.18</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">상태</span>
+                            <span class="text-yellow-400">대기중</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">담당자</span>
+                            <span class="text-slate-400">미배정</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Reports -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">관련 신고</h2>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-slate-800/50 rounded-lg">
+                            <div class="text-sm font-medium mb-1">RPT-001756</div>
+                            <div class="text-xs text-slate-400">동일 대상 / 2025.01.05</div>
+                            <span class="text-xs px-2 py-0.5 bg-green-500/20 text-green-400 rounded">처리완료</span>
+                        </div>
+                        <div class="p-3 bg-slate-800/50 rounded-lg">
+                            <div class="text-sm font-medium mb-1">RPT-001623</div>
+                            <div class="text-xs text-slate-400">동일 대상 / 2024.12.20</div>
+                            <span class="text-xs px-2 py-0.5 bg-slate-500/20 text-slate-400 rounded">기각</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing History -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">처리 내역</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mt-2"></div>
+                            <div class="flex-1">
+                                <div class="text-sm">신고가 접수되었습니다</div>
+                                <div class="text-xs text-slate-400">2025.01.18 10:45</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                            <div class="flex-1">
+                                <div class="text-sm">검토 대기 중</div>
+                                <div class="text-xs text-slate-400">현재</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+                    <h2 class="text-lg font-semibold mb-4">빠른 작업</h2>
+                    <div class="space-y-2">
+                        <button class="w-full py-2 text-left px-3 text-slate-300 hover:bg-slate-800 rounded-lg transition flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                            메시지 기록 확인
+                        </button>
+                        <button class="w-full py-2 text-left px-3 text-slate-300 hover:bg-slate-800 rounded-lg transition flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            신고자에게 메시지
+                        </button>
+                        <button class="w-full py-2 text-left px-3 text-slate-300 hover:bg-slate-800 rounded-lg transition flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                            </svg>
+                            리포트 인쇄
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
