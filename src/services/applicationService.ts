@@ -1,4 +1,5 @@
 import { supabase, getCurrentUser } from '@/lib/supabase';
+import { notificationService } from './notificationService';
 import type {
   Application,
   ApplicationInsert,
@@ -247,6 +248,41 @@ export const applicationService = {
         .eq('id', application.project_id);
     });
 
+    // Send notification to project owner
+    try {
+      // Get project details
+      const { data: projectDetails } = await supabase
+        .from('projects')
+        .select('title, owner_id')
+        .eq('id', application.project_id)
+        .single();
+
+      if (projectDetails) {
+        // Get applicant name
+        const { data: applicantProfile } = await supabase
+          .from('profiles')
+          .select('name')
+          .eq('id', user.id)
+          .single();
+
+        await notificationService.createNotification({
+          user_id: projectDetails.owner_id,
+          type: 'application_received',
+          title: '새로운 지원서',
+          message: `${applicantProfile?.name || '지원자'}님이 "${projectDetails.title}" 프로젝트에 지원했습니다.`,
+          link: `/pages/applications/detail.html?id=${data.id}`,
+          data: {
+            project_id: application.project_id,
+            application_id: data.id,
+            applicant_id: user.id,
+          },
+        });
+      }
+    } catch (notificationError) {
+      // Log but don't fail the main operation
+      console.error('Failed to send notification:', notificationError);
+    }
+
     return data as Application;
   },
 
@@ -303,6 +339,74 @@ export const applicationService = {
 
     if (error) {
       throw new Error(`Failed to update application status: ${error.message}`);
+    }
+
+    // Get project details for notification
+    const { data: projectData } = await supabase
+      .from('projects')
+      .select('title')
+      .eq('id', application.project_id)
+      .single();
+
+    const projectTitle = projectData?.title || '프로젝트';
+
+    // Send notification to applicant based on status
+    try {
+      if (status === 'accepted') {
+        // Add applicant to project_members
+        await supabase
+          .from('project_members')
+          .insert({
+            project_id: application.project_id,
+            user_id: application.applicant_id,
+            roles: application.applied_roles,
+            status: 'active',
+          })
+          .single();
+
+        // Send acceptance notification
+        await notificationService.createNotification({
+          user_id: application.applicant_id,
+          type: 'application_accepted',
+          title: '지원 승인',
+          message: `${projectTitle} 프로젝트에 합류하게 되었습니다! 축하합니다.`,
+          link: `/pages/projects/detail.html?id=${application.project_id}`,
+          data: {
+            project_id: application.project_id,
+            application_id: applicationId,
+          },
+        });
+      } else if (status === 'rejected') {
+        // Send rejection notification
+        await notificationService.createNotification({
+          user_id: application.applicant_id,
+          type: 'application_rejected',
+          title: '지원 결과 안내',
+          message: `${projectTitle} 프로젝트 지원 결과를 확인해주세요.`,
+          link: `/pages/applications/detail.html?id=${applicationId}`,
+          data: {
+            project_id: application.project_id,
+            application_id: applicationId,
+            reason: note,
+          },
+        });
+      } else if (status === 'shortlisted') {
+        // Send shortlist notification
+        await notificationService.createNotification({
+          user_id: application.applicant_id,
+          type: 'project_update',
+          title: '후보자로 선정',
+          message: `${projectTitle} 프로젝트의 후보자로 선정되었습니다.`,
+          link: `/pages/applications/detail.html?id=${applicationId}`,
+          data: {
+            project_id: application.project_id,
+            application_id: applicationId,
+          },
+        });
+      }
+    } catch (notificationError) {
+      // Log but don't fail the main operation
+      console.error('Failed to send notification:', notificationError);
     }
 
     return data as Application;
