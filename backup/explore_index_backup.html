@@ -82,68 +82,16 @@
             </div>
         </section>
 
-        <!-- Tab Selection -->
-        <section class="mb-8">
-            <div class="grid md:grid-cols-2 gap-4">
-                <!-- Tab 1: 운영자 찾기 -->
-                <button
-                    id="tab-operator"
-                    onclick="switchTab('operator')"
-                    class="tab-card p-6 rounded-2xl border-2 border-indigo-500 bg-indigo-500/10 text-left transition-all hover:bg-indigo-500/20"
-                >
-                    <h3 class="text-lg font-semibold mb-2">우리 프로젝트를 운영해주실 분을 찾습니다</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">이미 만들어진 또는 만들 수 있는 개발팀에서 해당 서비스를 운영할 운영 전문가를 찾습니다. 운영 마케팅에 장점이 있다면 본인이 운영해볼 프로젝트를 찾아 보세요.</p>
-                </button>
-
-                <!-- Tab 2: 개발자 찾기 -->
-                <button
-                    id="tab-developer"
-                    onclick="switchTab('developer')"
-                    class="tab-card p-6 rounded-2xl border-2 border-slate-700 bg-transparent text-left transition-all hover:border-slate-600"
-                >
-                    <h3 class="text-lg font-semibold mb-2">프로젝트를 만들어주실 분을 찾습니다</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">특정 분야의 전문가로, 만들고싶은 아이디어와 운영할 능력이 있는 서비스 운영자입니다. 해당 서비스를 개발 구현해주실 개발팀을 찾고 있습니다. 서비스 구현 개발 능력이 있으시다면 본인이 개발해볼 프로젝트를 찾아 보세요.</p>
-                </button>
-            </div>
-        </section>
-
         <div class="flex flex-col lg:flex-row gap-8">
             <!-- Filter Sidebar -->
             <aside class="lg:w-64 flex-shrink-0">
                 <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800 sticky top-8">
                     <h3 class="font-semibold mb-4">필터</h3>
 
-                    <!-- Role Filter - Operator (Tab 1) -->
-                    <div id="role-filter-operator" class="mb-6">
+                    <!-- Role Filter -->
+                    <div class="mb-6">
                         <h4 class="text-sm text-slate-400 mb-3">역할</h4>
                         <div class="space-y-2">
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">총괄운영자</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">마케터</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">디자이너</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">영업</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Role Filter - Developer (Tab 2) -->
-                    <div id="role-filter-developer" class="mb-6 hidden">
-                        <h4 class="text-sm text-slate-400 mb-3">역할</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">디자인</span>
-                            </label>
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
                                 <span class="text-sm">프론트엔드</span>
@@ -158,11 +106,15 @@
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">웹개발</span>
+                                <span class="text-sm">디자이너</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">앱개발</span>
+                                <span class="text-sm">마케터</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
+                                <span class="text-sm">AI/ML</span>
                             </label>
                         </div>
                     </div>
@@ -204,10 +156,6 @@
                         <div class="space-y-2">
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">0~10%</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
                                 <span class="text-sm">10% 이상</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
@@ -221,26 +169,6 @@
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
                                 <span class="text-sm">40% 이상</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">50% 이상</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">60% 이상</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">70% 이상</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">80% 이상</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">90% 이상</span>
                             </label>
                         </div>
                     </div>
@@ -264,29 +192,6 @@
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
                                 <span class="text-sm">개발중</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Investment Status Filter -->
-                    <div class="mb-6">
-                        <h4 class="text-sm text-slate-400 mb-3">투자 상태</h4>
-                        <div class="space-y-2">
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">시드</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">시리즈 A</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">시리즈 B</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-indigo-500 focus:ring-indigo-500 focus:ring-offset-0">
-                                <span class="text-sm">시리즈 C</span>
                             </label>
                         </div>
                     </div>
@@ -562,39 +467,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- JavaScript for Tab Switching -->
-    <script>
-        function switchTab(tabType) {
-            const tabOperator = document.getElementById('tab-operator');
-            const tabDeveloper = document.getElementById('tab-developer');
-            const roleFilterOperator = document.getElementById('role-filter-operator');
-            const roleFilterDeveloper = document.getElementById('role-filter-developer');
-
-            if (tabType === 'operator') {
-                // Update tab styles
-                tabOperator.classList.remove('border-slate-700', 'bg-transparent');
-                tabOperator.classList.add('border-indigo-500', 'bg-indigo-500/10');
-
-                tabDeveloper.classList.remove('border-indigo-500', 'bg-indigo-500/10');
-                tabDeveloper.classList.add('border-slate-700', 'bg-transparent');
-
-                // Show/hide role filters
-                roleFilterOperator.classList.remove('hidden');
-                roleFilterDeveloper.classList.add('hidden');
-            } else if (tabType === 'developer') {
-                // Update tab styles
-                tabDeveloper.classList.remove('border-slate-700', 'bg-transparent');
-                tabDeveloper.classList.add('border-indigo-500', 'bg-indigo-500/10');
-
-                tabOperator.classList.remove('border-indigo-500', 'bg-indigo-500/10');
-                tabOperator.classList.add('border-slate-700', 'bg-transparent');
-
-                // Show/hide role filters
-                roleFilterDeveloper.classList.remove('hidden');
-                roleFilterOperator.classList.add('hidden');
-            }
-        }
-    </script>
 </body>
 </html>
